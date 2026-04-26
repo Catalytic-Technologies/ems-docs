@@ -3,6 +3,7 @@
   "outputDirectory": "build",
   "framework": "docusaurus",
   "installCommand": "npm install",
+  "nodeVersion": "20.x",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

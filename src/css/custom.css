@@ -8,9 +8,6 @@
  * Border:      #E0E0E0 (light) / #333333 (dark)
  */
 
-/* ── Google Fonts ─────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 /* ── Light mode tokens ────────────────────────────────────────────────────── */
 :root {
   /* Docusaurus primary scale derived from #1E88E5 */
@@ -308,9 +305,9 @@ body {
 .admonition-danger .admonition-icon svg { fill: var(--ems-danger); }
 
 /* ── Code blocks ──────────────────────────────────────────────────────────── */
-.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module,
 code[class*="language-"],
-pre[class*="language-"] {
+pre[class*="language-"],
+div[class*="codeBlockContainer"] {
   border-radius: 8px;
   font-size: 0.875rem;
 }
