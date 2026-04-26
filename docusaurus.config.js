@@ -7,10 +7,6 @@ const config = {
   tagline: 'User guides, tutorials, and support for the EMS School Operating System',
   favicon: 'img/favicon.ico',
 
-  future: {
-    v4: true,
-  },
-
   url: 'https://ems-docs.vercel.app',
   baseUrl: '/',
 
@@ -139,8 +135,8 @@ const config = {
       },
       announcementBar: {
         id: 'welcome',
-        content: '📚 Welcome to the EMS Help Centre — your complete guide to the EMS School Operating System.',
-        backgroundColor: '#1a73e8',
+        content: 'Welcome to the EMS Help Centre — your complete guide to the EMS School Operating System.',
+        backgroundColor: '#1565C0',
         textColor: '#ffffff',
         isCloseable: true,
       },
