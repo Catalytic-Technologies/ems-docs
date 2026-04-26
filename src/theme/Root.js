@@ -17,7 +17,7 @@
 
 import React, { useEffect } from 'react';
 
-const CHATBASE_BOT_ID = 'YOUR_CHATBASE_BOT_ID'; // ← replace this
+const CHATBASE_BOT_ID = 'yHIg4EFq7piS-SamnNHls';
 
 export default function Root({ children }) {
   useEffect(() => {
