@@ -1,0 +1,18 @@
+# Docusaurus
+node_modules/
+.docusaurus/
+build/
+
+# Automation
+docs-automation/.env
+docs-automation/auth-state.json
+docs-automation/audio/
+docs-automation/recordings/
+docs-automation/tmp/
+docs-automation/output/
+docs-automation/test-results/
+docs-automation/playwright-report/
+
+# OS
+.DS_Store
+Thumbs.db

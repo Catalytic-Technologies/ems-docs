@@ -1,0 +1,106 @@
+/**
+ * EMS Help Centre — custom Docusaurus theme
+ */
+
+:root {
+  --ifm-color-primary: #1a73e8;
+  --ifm-color-primary-dark: #1565d3;
+  --ifm-color-primary-darker: #1259c5;
+  --ifm-color-primary-darkest: #0e48a3;
+  --ifm-color-primary-light: #2f81ea;
+  --ifm-color-primary-lighter: #3d8aeb;
+  --ifm-color-primary-lightest: #62a2ef;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-navbar-height: 60px;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #4da3ff;
+  --ifm-color-primary-dark: #2a90ff;
+  --ifm-color-primary-darker: #1886ff;
+  --ifm-color-primary-darkest: #006de4;
+  --ifm-color-primary-light: #70b6ff;
+  --ifm-color-primary-lighter: #83bfff;
+  --ifm-color-primary-lightest: #b8d9ff;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Role badges */
+.role-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 6px;
+  margin-bottom: 4px;
+  vertical-align: middle;
+}
+.role-badge--admin    { background: #e8f0fe; color: #1a73e8; }
+.role-badge--bursar   { background: #e6f4ea; color: #137333; }
+.role-badge--teacher  { background: #fef7e0; color: #b06000; }
+.role-badge--guardian { background: #fce8e6; color: #c5221f; }
+.role-badge--platform { background: #f3e8fd; color: #7b1fa2; }
+
+[data-theme='dark'] .role-badge--admin    { background: #1a3a6e; color: #7ab3ff; }
+[data-theme='dark'] .role-badge--bursar   { background: #0d3320; color: #5bb974; }
+[data-theme='dark'] .role-badge--teacher  { background: #3d2a00; color: #ffcc66; }
+[data-theme='dark'] .role-badge--guardian { background: #3d0f0c; color: #ff8a80; }
+[data-theme='dark'] .role-badge--platform { background: #2a0e3d; color: #ce93d8; }
+
+/* Screenshot images */
+.docs-screenshot {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  margin: 1rem 0;
+  max-width: 100%;
+}
+
+/* Video embeds */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Step numbers */
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--ifm-color-primary);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* Navbar customisation */
+.navbar__title {
+  font-weight: 700;
+}
+
+/* Footer */
+.footer--dark {
+  --ifm-footer-background-color: #0f1923;
+}
