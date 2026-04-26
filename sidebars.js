@@ -5,7 +5,7 @@ const sidebars = {
   docsSidebar: [
     {
       type: 'category',
-      label: '🚀 Getting Started',
+      label: 'Getting Started',
       collapsed: false,
       items: [
         'getting-started/overview',
@@ -15,7 +15,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '📋 Admissions',
+      label: 'Admissions',
       items: [
         'admissions/overview',
         'admissions/admission-cycles',
@@ -25,7 +25,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '🎓 Academic',
+      label: 'Academic',
       items: [
         'academic/students',
         'academic/classes',
@@ -39,7 +39,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '💰 Finance',
+      label: 'Finance',
       items: [
         'finance/fee-setup',
         'finance/invoicing',
@@ -53,7 +53,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '💬 Communication',
+      label: 'Communication',
       items: [
         'communication/inbox',
         'communication/notifications',
@@ -62,7 +62,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '📊 Reports & Analytics',
+      label: 'Reports & Analytics',
       items: [
         'reports/overview',
         'reports/report-packs',
@@ -71,7 +71,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '🏫 Administration',
+      label: 'Administration',
       items: [
         'administration/staff',
         'administration/parents',
@@ -82,7 +82,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '📱 Guardian App',
+      label: 'Guardian App',
       items: [
         'guardian-app/overview',
         'guardian-app/pwa-guide',
@@ -91,7 +91,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '⚙️ Platform Admin',
+      label: 'Platform Admin',
       items: [
         'platform-admin/overview',
         'platform-admin/tenant-management',
@@ -102,7 +102,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '🔧 Troubleshooting',
+      label: 'Troubleshooting',
       items: [
         'troubleshooting/common-issues',
         'troubleshooting/faq',

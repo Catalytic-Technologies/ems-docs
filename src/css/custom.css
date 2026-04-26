@@ -1,106 +1,398 @@
 /**
- * EMS Help Centre — custom Docusaurus theme
+ * EMS Help Centre — design tokens aligned with THEME_GUIDE.md
+ *
+ * Primary  : #1E88E5 (light)  /  #42A5F5 (dark)
+ * Secondary: #FF6D00          /  #FF9E40
+ * Success  : #43A047          /  #66BB6A
+ * Warning  : #FB8C00          /  #FFA726
+ * Danger   : #E53935          /  #EF5350
+ * Info     : #039BE5          /  #29B6F6
  */
 
+/* ── Fonts ─────────────────────────────────────────────────────────────────── */
 :root {
-  --ifm-color-primary: #1a73e8;
-  --ifm-color-primary-dark: #1565d3;
-  --ifm-color-primary-darker: #1259c5;
-  --ifm-color-primary-darkest: #0e48a3;
-  --ifm-color-primary-light: #2f81ea;
-  --ifm-color-primary-lighter: #3d8aeb;
-  --ifm-color-primary-lightest: #62a2ef;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ifm-font-family-monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  --ifm-font-weight-normal: 400;
+  --ifm-font-weight-semibold: 600;
   --ifm-heading-font-weight: 600;
+  --ifm-font-size-base: 15px;
+  --ifm-line-height-base: 1.65;
+}
+
+/* ── Light mode tokens ─────────────────────────────────────────────────────── */
+:root {
+  --ifm-color-primary:         #1E88E5;
+  --ifm-color-primary-dark:    #1565C0;
+  --ifm-color-primary-darker:  #1255A8;
+  --ifm-color-primary-darkest: #0D3D7A;
+  --ifm-color-primary-light:   #42A5F5;
+  --ifm-color-primary-lighter: #64B5F6;
+  --ifm-color-primary-lightest:#90CAF9;
+
+  --ifm-background-color:      #F8F9FA;
+  --ifm-background-surface-color: #FFFFFF;
+  --ifm-color-emphasis-100:    #F5F5F5;
+  --ifm-color-emphasis-200:    #E0E0E0;
+  --ifm-color-emphasis-300:    #BDBDBD;
+  --ifm-color-emphasis-600:    #757575;
+  --ifm-color-emphasis-700:    #616161;
+  --ifm-color-emphasis-800:    #424242;
+  --ifm-color-emphasis-900:    #212121;
+
+  --ems-success:       #43A047;
+  --ems-success-tint:  #E8F5E9;
+  --ems-warning:       #FB8C00;
+  --ems-warning-tint:  #FFF3E0;
+  --ems-danger:        #E53935;
+  --ems-danger-tint:   #FFEBEE;
+  --ems-info:          #039BE5;
+  --ems-info-tint:     #E3F2FD;
+  --ems-primary-tint:  #E3F2FD;
+  --ems-secondary:     #FF6D00;
+
+  --ifm-code-font-size: 90%;
   --ifm-navbar-height: 60px;
+  --ifm-navbar-shadow: 0 1px 0 0 var(--ifm-color-emphasis-200);
+  --ifm-card-background-color: #FFFFFF;
+  --ifm-global-radius: 6px;
+  --docusaurus-highlighted-code-line-bg: rgba(30, 136, 229, 0.08);
 }
 
+/* ── Dark mode tokens ──────────────────────────────────────────────────────── */
 [data-theme='dark'] {
-  --ifm-color-primary: #4da3ff;
-  --ifm-color-primary-dark: #2a90ff;
-  --ifm-color-primary-darker: #1886ff;
-  --ifm-color-primary-darkest: #006de4;
-  --ifm-color-primary-light: #70b6ff;
-  --ifm-color-primary-lighter: #83bfff;
-  --ifm-color-primary-lightest: #b8d9ff;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary:         #42A5F5;
+  --ifm-color-primary-dark:    #1E88E5;
+  --ifm-color-primary-darker:  #1565C0;
+  --ifm-color-primary-darkest: #1255A8;
+  --ifm-color-primary-light:   #64B5F6;
+  --ifm-color-primary-lighter: #90CAF9;
+  --ifm-color-primary-lightest:#BBDEFB;
+
+  --ifm-background-color:      #121212;
+  --ifm-background-surface-color: #1E1E1E;
+  --ifm-color-emphasis-100:    #2A2A2A;
+  --ifm-color-emphasis-200:    #333333;
+  --ifm-color-emphasis-300:    #424242;
+  --ifm-color-emphasis-600:    #A0A0A0;
+  --ifm-color-emphasis-700:    #BDBDBD;
+  --ifm-color-emphasis-800:    #E0E0E0;
+  --ifm-color-emphasis-900:    #F5F5F5;
+
+  --ems-success:       #66BB6A;
+  --ems-success-tint:  rgba(102, 187, 106, 0.12);
+  --ems-warning:       #FFA726;
+  --ems-warning-tint:  rgba(255, 167, 38, 0.12);
+  --ems-danger:        #EF5350;
+  --ems-danger-tint:   rgba(239, 83, 80, 0.12);
+  --ems-info:          #29B6F6;
+  --ems-info-tint:     rgba(41, 182, 246, 0.12);
+  --ems-primary-tint:  rgba(66, 165, 245, 0.12);
+  --ems-secondary:     #FF9E40;
+
+  --ifm-card-background-color: #1E1E1E;
+  --docusaurus-highlighted-code-line-bg: rgba(66, 165, 245, 0.12);
 }
 
-/* Role badges */
+/* ── Base typography ───────────────────────────────────────────────────────── */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.01em;
+}
+
+/* ── Navbar ────────────────────────────────────────────────────────────────── */
+.navbar {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.navbar__title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.navbar__link {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* ── Sidebar ───────────────────────────────────────────────────────────────── */
+.menu__link {
+  font-size: 0.875rem;
+  border-radius: var(--ifm-global-radius);
+}
+
+.menu__link--active {
+  font-weight: 600;
+}
+
+.menu__caret::before {
+  height: 1.1rem;
+  width: 1.1rem;
+}
+
+/* ── Doc article ───────────────────────────────────────────────────────────── */
+.markdown {
+  --ifm-h1-font-size: 1.75rem;
+  --ifm-h2-font-size: 1.3rem;
+  --ifm-h3-font-size: 1.1rem;
+}
+
+.markdown h1:first-child {
+  margin-bottom: 0.5rem;
+}
+
+/* ── Tables ────────────────────────────────────────────────────────────────── */
+.markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+.markdown table th {
+  background: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.markdown table td,
+.markdown table th {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+}
+
+/* ── Code blocks ───────────────────────────────────────────────────────────── */
+code {
+  border-radius: 4px;
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+}
+
+/* ── Admonitions ───────────────────────────────────────────────────────────── */
+.alert {
+  border-radius: var(--ifm-global-radius);
+  border-width: 0;
+  border-left-width: 4px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.9rem;
+}
+
+/* tip */
+.alert--success {
+  background-color: var(--ems-success-tint);
+  border-left-color: var(--ems-success);
+  color: inherit;
+}
+.alert--success .admonition-heading h5 {
+  color: var(--ems-success);
+}
+[data-theme='dark'] .alert--success .admonition-heading h5 {
+  color: var(--ems-success);
+}
+
+/* note / info */
+.alert--secondary,
+.alert--info {
+  background-color: var(--ems-info-tint);
+  border-left-color: var(--ems-info);
+}
+.alert--secondary .admonition-heading h5,
+.alert--info .admonition-heading h5 {
+  color: var(--ems-info);
+}
+
+/* warning / caution */
+.alert--warning {
+  background-color: var(--ems-warning-tint);
+  border-left-color: var(--ems-warning);
+}
+.alert--warning .admonition-heading h5 {
+  color: var(--ems-warning);
+}
+
+/* danger */
+.alert--danger {
+  background-color: var(--ems-danger-tint);
+  border-left-color: var(--ems-danger);
+}
+.alert--danger .admonition-heading h5 {
+  color: var(--ems-danger);
+}
+
+.admonition-heading {
+  margin-bottom: 0.4rem;
+}
+
+.admonition-heading h5 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ── Role badges ───────────────────────────────────────────────────────────── */
 .role-badge {
   display: inline-block;
   padding: 2px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
   font-weight: 600;
-  margin-right: 6px;
+  margin-right: 5px;
   margin-bottom: 4px;
   vertical-align: middle;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
-.role-badge--admin    { background: #e8f0fe; color: #1a73e8; }
-.role-badge--bursar   { background: #e6f4ea; color: #137333; }
-.role-badge--teacher  { background: #fef7e0; color: #b06000; }
-.role-badge--guardian { background: #fce8e6; color: #c5221f; }
-.role-badge--platform { background: #f3e8fd; color: #7b1fa2; }
 
-[data-theme='dark'] .role-badge--admin    { background: #1a3a6e; color: #7ab3ff; }
-[data-theme='dark'] .role-badge--bursar   { background: #0d3320; color: #5bb974; }
-[data-theme='dark'] .role-badge--teacher  { background: #3d2a00; color: #ffcc66; }
-[data-theme='dark'] .role-badge--guardian { background: #3d0f0c; color: #ff8a80; }
-[data-theme='dark'] .role-badge--platform { background: #2a0e3d; color: #ce93d8; }
+.role-badge--admin {
+  background: var(--ems-primary-tint);
+  color: #1565C0;
+  border: 1px solid #90CAF9;
+}
+.role-badge--bursar {
+  background: var(--ems-success-tint);
+  color: #2E7D32;
+  border: 1px solid #A5D6A7;
+}
+.role-badge--teacher {
+  background: var(--ems-warning-tint);
+  color: #E65100;
+  border: 1px solid #FFCC80;
+}
+.role-badge--guardian {
+  background: var(--ems-danger-tint);
+  color: #C62828;
+  border: 1px solid #EF9A9A;
+}
+.role-badge--platform {
+  background: #F3E5F5;
+  color: #6A1B9A;
+  border: 1px solid #CE93D8;
+}
 
-/* Screenshot images */
-.docs-screenshot {
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  margin: 1rem 0;
+[data-theme='dark'] .role-badge--admin    { background: rgba(66,165,245,0.12); color: #90CAF9; border-color: rgba(66,165,245,0.3); }
+[data-theme='dark'] .role-badge--bursar   { background: rgba(102,187,106,0.12); color: #A5D6A7; border-color: rgba(102,187,106,0.3); }
+[data-theme='dark'] .role-badge--teacher  { background: rgba(255,167,38,0.12); color: #FFCC80; border-color: rgba(255,167,38,0.3); }
+[data-theme='dark'] .role-badge--guardian { background: rgba(239,83,80,0.12); color: #EF9A9A; border-color: rgba(239,83,80,0.3); }
+[data-theme='dark'] .role-badge--platform { background: rgba(206,147,216,0.12); color: #CE93D8; border-color: rgba(206,147,216,0.3); }
+
+/* ── Screenshot images ─────────────────────────────────────────────────────── */
+.markdown img {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  display: block;
+  margin: 1.25rem 0;
   max-width: 100%;
 }
 
-/* Video embeds */
+/* ── Video embeds ──────────────────────────────────────────────────────────── */
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
   margin: 1.5rem 0;
-  border-radius: 8px;
+  border-radius: var(--ifm-global-radius);
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 .video-wrapper iframe {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: none;
 }
 
-/* Step numbers */
-.step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: var(--ifm-color-primary);
-  color: white;
-  border-radius: 50%;
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin-right: 8px;
-  flex-shrink: 0;
+/* ── Details / collapsible (FAQ) ───────────────────────────────────────────── */
+details {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  background: var(--ifm-background-surface-color);
 }
 
-/* Navbar customisation */
-.navbar__title {
-  font-weight: 700;
+details summary {
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  color: var(--ifm-color-primary);
+  list-style: none;
 }
 
-/* Footer */
+details summary::before {
+  content: '+';
+  font-weight: 700;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+details[open] summary::before {
+  content: '-';
+}
+
+details > *:not(summary) {
+  margin-top: 0.75rem;
+}
+
+/* ── Breadcrumbs ───────────────────────────────────────────────────────────── */
+.breadcrumbs__link {
+  font-size: 0.8rem;
+}
+
+/* ── Pagination ────────────────────────────────────────────────────────────── */
+.pagination-nav__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ── TOC (right sidebar) ───────────────────────────────────────────────────── */
+.table-of-contents__link {
+  font-size: 0.8rem;
+}
+
+.table-of-contents__link--active {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────────── */
 .footer--dark {
-  --ifm-footer-background-color: #0f1923;
+  --ifm-footer-background-color: #0d1b2a;
+  font-size: 0.875rem;
+}
+
+.footer__title {
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer__link-item {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.footer__link-item:hover {
+  opacity: 1;
+}
+
+/* ── Announcement bar ──────────────────────────────────────────────────────── */
+div[class*='announcementBar'] {
+  font-size: 0.875rem;
+  font-weight: 500;
 }

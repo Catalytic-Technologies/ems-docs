@@ -6,61 +6,94 @@ import styles from './index.module.css';
 
 const modules = [
   {
-    icon: '📋',
     title: 'Admissions',
     description: 'Manage admission cycles, review applications, and run the public admissions portal.',
     link: '/docs/admissions/overview',
+    category: 'Academic',
   },
   {
-    icon: '🎓',
     title: 'Academic',
     description: 'Students, classes, attendance, exit passes, assessments, timetables, and promotion.',
     link: '/docs/academic/students',
+    category: 'Academic',
   },
   {
-    icon: '💰',
     title: 'Finance',
     description: 'Fee structures, invoicing, payments, scholarships, budgets, expenses, and requisitions.',
     link: '/docs/finance/fee-setup',
+    category: 'Finance',
   },
   {
-    icon: '💬',
     title: 'Communication',
     description: 'Unified inbox, messaging, notifications, and document management.',
     link: '/docs/communication/inbox',
+    category: 'Admin',
   },
   {
-    icon: '📊',
     title: 'Reports & Analytics',
     description: 'Report packs, analytics centre, and role dashboards.',
     link: '/docs/reports/overview',
+    category: 'Admin',
   },
   {
-    icon: '🏫',
     title: 'Administration',
     description: 'Staff, parents, inventory, calendar, and system settings.',
     link: '/docs/administration/staff',
+    category: 'Admin',
   },
   {
-    icon: '📱',
     title: 'Guardian App',
-    description: 'Guide for parents using the guardian PWA and mobile app.',
+    description: 'Guide for parents using the guardian PWA and mobile application.',
     link: '/docs/guardian-app/overview',
+    category: 'App',
   },
   {
-    icon: '⚙️',
     title: 'Platform Admin',
     description: 'Super admin tools: tenant management, subscriptions, and system health.',
     link: '/docs/platform-admin/overview',
+    category: 'Platform',
   },
 ];
 
-function ModuleCard({ icon, title, description, link }) {
+const quickLinks = [
+  {
+    heading: 'New to EMS?',
+    body: (
+      <>
+        Start with the{' '}
+        <Link to="/docs/getting-started/overview">system overview</Link> to
+        understand key concepts and how modules connect.
+      </>
+    ),
+  },
+  {
+    heading: 'Something not working?',
+    body: (
+      <>
+        Check the{' '}
+        <Link to="/docs/troubleshooting/common-issues">common issues guide</Link>{' '}
+        or browse the <Link to="/docs/troubleshooting/faq">FAQ</Link>.
+      </>
+    ),
+  },
+  {
+    heading: "What's new?",
+    body: (
+      <>
+        Read the latest{' '}
+        <Link to="/blog">release notes</Link> to stay up to date with new
+        features and improvements.
+      </>
+    ),
+  },
+];
+
+function ModuleCard({ title, description, link }) {
   return (
     <Link className={styles.card} to={link}>
-      <div className={styles.cardIcon}>{icon}</div>
       <h3 className={styles.cardTitle}>{title}</h3>
       <p className={styles.cardDescription}>{description}</p>
+      <span className={styles.cardCta}>View guide &rarr;</span>
     </Link>
   );
 }
@@ -71,10 +104,11 @@ export default function Home() {
     <Layout title="Home" description={siteConfig.tagline}>
       <header className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>EMS Help Centre</h1>
+          <div className={styles.heroEyebrow}>EMS Help Centre</div>
+          <h1 className={styles.heroTitle}>School Operating System</h1>
           <p className={styles.heroSubtitle}>
-            Complete user guides, step-by-step tutorials, and support resources for the
-            EMS School Operating System.
+            Complete user guides, step-by-step tutorials, and support resources
+            for every module in the EMS platform.
           </p>
           <div className={styles.heroCta}>
             <Link className="button button--primary button--lg" to="/docs/getting-started/overview">
@@ -90,6 +124,9 @@ export default function Home() {
       <main className={styles.main}>
         <section className={styles.moduleSection}>
           <h2 className={styles.sectionTitle}>Browse by Module</h2>
+          <p className={styles.sectionSubtitle}>
+            Select a module below to find step-by-step guides and tutorials.
+          </p>
           <div className={styles.moduleGrid}>
             {modules.map((m) => (
               <ModuleCard key={m.title} {...m} />
@@ -98,27 +135,12 @@ export default function Home() {
         </section>
 
         <section className={styles.quickLinks}>
-          <div className={styles.quickLink}>
-            <span className={styles.quickLinkIcon}>🚀</span>
-            <div>
-              <h3>New to EMS?</h3>
-              <p>Start with the <Link to="/docs/getting-started/overview">system overview</Link> to understand the key concepts and how modules connect.</p>
+          {quickLinks.map((ql) => (
+            <div key={ql.heading} className={styles.quickLink}>
+              <h3 className={styles.quickLinkHeading}>{ql.heading}</h3>
+              <p className={styles.quickLinkBody}>{ql.body}</p>
             </div>
-          </div>
-          <div className={styles.quickLink}>
-            <span className={styles.quickLinkIcon}>🔧</span>
-            <div>
-              <h3>Something not working?</h3>
-              <p>Check the <Link to="/docs/troubleshooting/common-issues">common issues guide</Link> or browse the <Link to="/docs/troubleshooting/faq">FAQ</Link>.</p>
-            </div>
-          </div>
-          <div className={styles.quickLink}>
-            <span className={styles.quickLinkIcon}>📢</span>
-            <div>
-              <h3>What's new?</h3>
-              <p>Read the latest <Link to="/blog">release notes</Link> to stay up to date with new features and improvements.</p>
-            </div>
-          </div>
+          ))}
         </section>
       </main>
     </Layout>

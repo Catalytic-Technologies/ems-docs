@@ -7,14 +7,10 @@ const config = {
   tagline: 'User guides, tutorials, and support for the EMS School Operating System',
   favicon: 'img/favicon.ico',
 
-  future: {
-    v4: true,
-  },
-
   url: 'https://ems-docs.vercel.app',
   baseUrl: '/',
 
-  organizationName: 'ems-system',
+  organizationName: 'Catalytic-Technologies',
   projectName: 'ems-docs',
 
   onBrokenLinks: 'warn',
@@ -24,6 +20,13 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+      type: 'text/css',
+    },
+  ],
 
   plugins: [
     [
@@ -44,7 +47,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/ems-system/ems-docs/tree/main/',
+          editUrl: 'https://github.com/Catalytic-Technologies/ems-docs/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -95,7 +98,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/ems-system/ems-docs',
+            href: 'https://github.com/Catalytic-Technologies/ems-docs',
             label: 'GitHub',
             position: 'right',
           },
@@ -139,8 +142,8 @@ const config = {
       },
       announcementBar: {
         id: 'welcome',
-        content: '📚 Welcome to the EMS Help Centre — your complete guide to the EMS School Operating System.',
-        backgroundColor: '#1a73e8',
+        content: 'Welcome to the EMS Help Centre — your complete guide to the EMS School Operating System.',
+        backgroundColor: '#1E88E5',
         textColor: '#ffffff',
         isCloseable: true,
       },
