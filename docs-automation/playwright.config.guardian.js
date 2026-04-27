@@ -2,9 +2,9 @@
 /**
  * Playwright configuration for the EMS Guardian PWA (http://localhost:3001).
  *
- * Uses a mobile viewport (iPhone 14 Pro) because the Guardian PWA is a
- * mobile-first progressive web app. Run this config separately from the
- * admin-web config:
+ * Uses a Pixel 7 (Android / Chromium) responsive viewport — matches the
+ * target device for the Guardian PWA and avoids the need for a separate
+ * WebKit browser install.
  *
  *   npx playwright test --config=playwright.config.guardian.js
  */
@@ -35,9 +35,9 @@ export default defineConfig({
 
   use: {
     baseURL: GUARDIAN_URL,
-    // iPhone 14 Pro viewport — matches real-world usage of the PWA
-    viewport: { width: 393, height: 852 },
-    deviceScaleFactor: 3,
+    // Pixel 7 viewport — 412 × 915 dp, 2.625× pixel ratio, Chromium-based
+    viewport: { width: 412, height: 915 },
+    deviceScaleFactor: 2.625,
     isMobile: true,
     hasTouch: true,
     screenshot: 'only-on-failure',
@@ -50,6 +50,9 @@ export default defineConfig({
       name: 'guardian-setup',
       testMatch: 'auth.setup.guardian.js',
       use: {
+        // Use Chromium (no webkit install needed)
+        ...devices['Pixel 7'],
+        baseURL: GUARDIAN_URL,
         launchOptions: { slowMo: 300, headless: false },
       },
     },
@@ -59,7 +62,7 @@ export default defineConfig({
       testMatch: 'guardian-screenshots/**/*.spec.js',
       dependencies: ['guardian-setup'],
       use: {
-        ...devices['iPhone 14 Pro'],
+        ...devices['Pixel 7'],
         baseURL: GUARDIAN_URL,
         storageState: 'guardian-auth-state.json',
         launchOptions: { slowMo: 400, headless: false },
@@ -71,7 +74,7 @@ export default defineConfig({
       testMatch: 'guardian-videos/**/*.spec.js',
       dependencies: ['guardian-setup'],
       use: {
-        ...devices['iPhone 14 Pro'],
+        ...devices['Pixel 7'],
         baseURL: GUARDIAN_URL,
         storageState: 'guardian-auth-state.json',
         launchOptions: { slowMo: 700, headless: false },

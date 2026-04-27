@@ -26,7 +26,7 @@ test('guardian home dashboard', async ({ page }) => {
   // Highlight attendance card
   const attCard = page.locator('text=Attendance').first();
   if (await attCard.isVisible()) {
-    await highlight(page, 'text=Attendance', { colour: '#2563eb', label: 'Attendance status' });
+    await highlight(page, attCard, { colour: '#2563eb', label: 'Attendance status' });
     await page.screenshot({ path: screenshotPath('guardian', 'home-attendance-card.png'), fullPage: false });
     await clearHighlights(page);
   }

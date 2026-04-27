@@ -82,8 +82,12 @@ export async function highlight(page, selectorOrLocator, { colour = '#2563eb', l
     && typeof selectorOrLocator === 'object'
     && typeof selectorOrLocator.evaluate === 'function';
 
-  // Playwright-specific pseudo-selectors that querySelector() cannot handle.
-  const PLAYWRIGHT_PSEUDOS = [':text(', ':has-text(', ':text-is(', ':visible', ':checked'];
+  // Playwright-specific selector syntax that querySelector() cannot handle.
+  // Covers both pseudo-class form (:has-text) and engine-prefix form (text=).
+  const PLAYWRIGHT_PSEUDOS = [
+    ':text(', ':has-text(', ':text-is(', ':visible', ':checked',
+    'text=', 'css=', 'xpath=', 'role=', 'label=', 'placeholder=',
+  ];
   const isPlaywrightSelector = typeof selectorOrLocator === 'string'
     && PLAYWRIGHT_PSEUDOS.some((p) => selectorOrLocator.includes(p));
 
