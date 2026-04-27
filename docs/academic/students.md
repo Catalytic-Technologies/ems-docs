@@ -33,7 +33,7 @@ Use the **search bar** to find a student by name or admission number. Use the **
 3. Upload a **passport photo** (optional but recommended).
 4. Click **Save**.
 
-:::tip Admission number
+:::tip[Admission number]
 If you leave the admission number blank, EMS will auto-generate one based on the year and a sequence. You can override this with your school's numbering format in Settings.
 :::
 

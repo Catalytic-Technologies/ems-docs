@@ -14,11 +14,11 @@ sidebar_position: 2
 
 ![EMS Login Screen](../../static/img/getting-started/login.png)
 
-:::tip Forgot your password?
+:::tip[Forgot your password?]
 Click **Forgot Password** on the login page. A reset link will be sent to your registered email address. If you do not receive the email within 5 minutes, check your spam folder or contact your school administrator.
 :::
 
-:::note First-time login
+:::note[First-time login]
 If this is your first time logging in, use the temporary password sent to your email and you will be prompted to set a new password immediately.
 :::
 
@@ -61,7 +61,7 @@ If you are a Super Admin, you can switch into a school's tenant context using th
 
 Click your **profile avatar** in the top-right corner, then click **Logout**. Your session ends immediately and you are returned to the login page.
 
-:::warning Inactivity timeout
+:::warning[Inactivity timeout]
 EMS sessions expire after 60 minutes of inactivity for security. Save your work before stepping away.
 :::
 

@@ -22,7 +22,7 @@ The EMS Guardian mobile app is a native Android and iOS app for parents. It offe
 3. Enter your **Email** and **Password**.
 4. Tap **Sign In**.
 
-:::tip First time logging in?
+:::tip[First time logging in?]
 Use the temporary password sent to your email by the school. You will be prompted to set a new password on first login.
 :::
 

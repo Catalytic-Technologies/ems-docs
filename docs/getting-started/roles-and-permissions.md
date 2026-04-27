@@ -93,6 +93,6 @@ School Admins can create, edit, and deactivate user accounts from the **Staff** 
 
 To change a user's role, find the staff member and click **Edit**, then change the role dropdown.
 
-:::warning Role changes take effect immediately
+:::warning[Role changes take effect immediately]
 Changing a user's role updates their access the next time they load the page or log in.
 :::

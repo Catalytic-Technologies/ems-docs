@@ -10,7 +10,7 @@ sidebar_position: 1
 
 The Platform Admin panel is exclusively for EMS platform operators (Super Admins). It provides tools to manage all schools on the platform, monitor system health, and handle billing.
 
-:::warning Restricted Access
+:::warning[Restricted Access]
 This section is only relevant for EMS platform operators. School-level users do not have access to Platform Admin.
 :::
 

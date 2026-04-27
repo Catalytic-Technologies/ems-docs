@@ -30,7 +30,7 @@ The Attendance module lets teachers mark daily or period-by-period attendance fo
 6. Optionally click the **note icon** next to a student to add a reason for absence.
 7. Click **Save Attendance**.
 
-:::tip Quick mark
+:::tip[Quick mark]
 Use the **Mark All Present** button at the top to mark the entire class present, then adjust individual students who are absent. This is faster for classes with high attendance.
 :::
 

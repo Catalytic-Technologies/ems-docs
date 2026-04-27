@@ -33,7 +33,7 @@ After submission, the parent receives a **confirmation email** with their applic
 
 The portal only accepts applications when a cycle is **Active** and within the **Open Date – Close Date** window. Outside this window, the portal displays a "Applications are currently closed" message.
 
-:::tip Share the direct cycle link
+:::tip[Share the direct cycle link]
 If you have multiple active cycles (e.g. Grade 1 and Grade 7 simultaneously), applicants are asked to select the appropriate cycle at the start of the form.
 :::
 

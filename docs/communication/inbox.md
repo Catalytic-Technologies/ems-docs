@@ -34,7 +34,7 @@ Click any message in the list to open and read it. Unread messages are shown in 
 
 ![Compose Message](../../static/img/communication/inbox-compose.png)
 
-:::tip Sending to a class
+:::tip[Sending to a class]
 You can address a message to an entire class. All guardians with students in that class will receive the message. Useful for class announcements.
 :::
 

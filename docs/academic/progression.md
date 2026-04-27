@@ -50,7 +50,7 @@ Before running the wizard, define promotion rules:
 5. Click individual students to override their outcome if needed.
 6. When satisfied, click **Execute Promotion**.
 
-:::danger Irreversible action
+:::danger[Irreversible action]
 Executing a promotion moves all students to their new classes. This action cannot be automatically undone. Ensure you have reviewed all overrides before confirming.
 :::
 

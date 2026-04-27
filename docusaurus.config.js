@@ -7,6 +7,10 @@ const config = {
   tagline: 'User guides, tutorials, and support for the EMS School Operating System',
   favicon: 'img/favicon.ico',
 
+  future: {
+    v4: true,
+  },
+
   url: 'https://ems-docs.vercel.app',
   baseUrl: '/',
 
@@ -15,31 +19,6 @@ const config = {
 
   onBrokenLinks: 'warn',
   onBrokenAnchors: 'warn',
-
-  headTags: [
-    {
-      tagName: 'link',
-      attributes: {
-        rel: 'preconnect',
-        href: 'https://fonts.googleapis.com',
-      },
-    },
-    {
-      tagName: 'link',
-      attributes: {
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com',
-        crossorigin: 'anonymous',
-      },
-    },
-    {
-      tagName: 'link',
-      attributes: {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
-      },
-    },
-  ],
 
   i18n: {
     defaultLocale: 'en',
@@ -161,7 +140,7 @@ const config = {
       announcementBar: {
         id: 'welcome',
         content: 'Welcome to the EMS Help Centre — your complete guide to the EMS School Operating System.',
-        backgroundColor: '#1565C0',
+        backgroundColor: '#1a73e8',
         textColor: '#ffffff',
         isCloseable: true,
       },

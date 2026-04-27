@@ -32,7 +32,7 @@ The Electives module manages optional subjects that students choose from a pool 
 4. Select the student's choices according to the rules.
 5. Click **Save**.
 
-:::tip Bulk assignment
+:::tip[Bulk assignment]
 Use the bulk assignment tool to process an entire class at once if all students are taking the same elective combination.
 :::
 
