@@ -4,192 +4,218 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
-// CoreUI-style SVG icon paths (24x24 viewBox)
-const icons = {
-  admissions: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+// ── SVG icons (CoreUI-style, 24×24) ───────────────────────────────
+const Icon = {
+  GettingStarted: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="12 8 16 12 12 16"/>
+      <line x1="8" y1="12" x2="16" y2="12"/>
     </svg>
   ),
-  academic: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+  Academic: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+      <path d="M6 12v5c3 3 9 3 12 0v-5"/>
     </svg>
   ),
-  finance: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+  Finance: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="5" width="20" height="14" rx="2"/>
+      <line x1="2" y1="10" x2="22" y2="10"/>
     </svg>
   ),
-  communication: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
+  Admissions: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <line x1="19" y1="8" x2="19" y2="14"/>
+      <line x1="22" y1="11" x2="16" y2="11"/>
     </svg>
   ),
-  reports: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+  Communication: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
     </svg>
   ),
-  administration: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+  Reports: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="18" y1="20" x2="18" y2="10"/>
+      <line x1="12" y1="20" x2="12" y2="4"/>
+      <line x1="6" y1="20" x2="6" y2="14"/>
     </svg>
   ),
-  guardian: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+  Admin: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
     </svg>
   ),
-  platform: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+  Mobile: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+      <line x1="12" y1="18" x2="12.01" y2="18"/>
     </svg>
   ),
-  arrowRight: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="16" height="16">
-      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+  Settings: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
     </svg>
   ),
-  bookOpen: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+  Wrench: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
     </svg>
   ),
-  support: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+  Book: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
     </svg>
   ),
-  newFeature: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h8v2H6zm10 0h2v2h-2zm-6-4h8v2h-8z"/>
+  ArrowRight: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+      <line x1="5" y1="12" x2="19" y2="12"/>
+      <polyline points="12 5 19 12 12 19"/>
     </svg>
   ),
 };
 
-// Pre-computed icon background tints (colour at 10% opacity on white)
-function iconBg(hex) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `rgba(${r},${g},${b},0.1)`;
-}
-
-const modules = [
+// ── Feature cards (top 2×2 grid, GitBook-style) ───────────────────
+const featureCards = [
   {
-    icon: icons.admissions,
-    color: '#1a73e8',
-    title: 'Admissions',
-    description: 'Manage admission cycles, review applications, and run the public admissions portal.',
-    link: '/docs/admissions/overview',
-  },
-  {
-    icon: icons.academic,
-    color: '#0d9488',
-    title: 'Academic',
-    description: 'Students, classes, attendance, exit passes, assessments, timetables, and promotion.',
-    link: '/docs/academic/students',
-  },
-  {
-    icon: icons.finance,
-    color: '#16a34a',
-    title: 'Finance',
-    description: 'Fee structures, invoicing, payments, scholarships, budgets, expenses, and requisitions.',
-    link: '/docs/finance/fee-setup',
-  },
-  {
-    icon: icons.communication,
-    color: '#7c3aed',
-    title: 'Communication',
-    description: 'Unified inbox, messaging, notifications, and document management.',
-    link: '/docs/communication/inbox',
-  },
-  {
-    icon: icons.reports,
-    color: '#d97706',
-    title: 'Reports & Analytics',
-    description: 'Report packs, analytics centre, and role dashboards.',
-    link: '/docs/reports/overview',
-  },
-  {
-    icon: icons.administration,
-    color: '#0284c7',
-    title: 'Administration',
-    description: 'Staff, parents, inventory, calendar, and system settings.',
-    link: '/docs/administration/staff',
-  },
-  {
-    icon: icons.guardian,
-    color: '#dc2626',
-    title: 'Guardian App',
-    description: 'Guide for parents using the guardian PWA and mobile app.',
-    link: '/docs/guardian-app/overview',
-  },
-  {
-    icon: icons.platform,
-    color: '#475569',
-    title: 'Platform Admin',
-    description: 'Super admin tools: tenant management, subscriptions, and system health.',
-    link: '/docs/platform-admin/overview',
-  },
-];
-
-const quickLinks = [
-  {
-    icon: icons.bookOpen,
-    color: '#1a73e8',
-    title: 'New to EMS?',
-    description: 'Start with the system overview to understand the key concepts and how modules connect.',
+    title: 'Getting Started',
+    description: 'Set up your account, learn the dashboard, and understand roles and permissions across the platform.',
     link: '/docs/getting-started/overview',
-    linkLabel: 'System overview',
+    Icon: Icon.GettingStarted,
+    gradient: 'linear-gradient(135deg, #e0f2fe 0%, #bfdbfe 100%)',
+    iconColor: '#1d4ed8',
   },
   {
-    icon: icons.support,
-    color: '#dc2626',
-    title: 'Something not working?',
-    description: 'Check the common issues guide or browse the FAQ for quick answers.',
-    link: '/docs/troubleshooting/common-issues',
-    linkLabel: 'Troubleshooting guide',
+    title: 'Academic Management',
+    description: 'Manage students, classes, attendance, assessments, timetables, and end-of-year progression.',
+    link: '/docs/academic/students',
+    Icon: Icon.Academic,
+    gradient: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)',
+    iconColor: '#065f46',
   },
   {
-    icon: icons.newFeature,
-    color: '#d97706',
-    title: "What's new?",
-    description: 'Read the latest release notes to stay up to date with new features and improvements.',
-    link: '/blog',
-    linkLabel: 'Release notes',
+    title: 'Finance & Billing',
+    description: 'Configure fee structures, generate invoices, record payments, and manage budgets and expenses.',
+    link: '/docs/finance/fee-setup',
+    Icon: Icon.Finance,
+    gradient: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
+    iconColor: '#92400e',
+  },
+  {
+    title: 'Admissions Portal',
+    description: 'Run admission cycles, manage applications through the pipeline, and operate the public portal.',
+    link: '/docs/admissions/overview',
+    Icon: Icon.Admissions,
+    gradient: 'linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%)',
+    iconColor: '#5b21b6',
   },
 ];
 
-function ModuleCard({ icon, color, title, description, link }) {
+// ── Topic groups (3-column link lists, GitBook-style) ─────────────
+const topicGroups = [
+  {
+    title: 'Academic',
+    Icon: Icon.Academic,
+    links: [
+      { label: 'Students', to: '/docs/academic/students' },
+      { label: 'Classes & Timetables', to: '/docs/academic/classes' },
+      { label: 'Attendance', to: '/docs/academic/attendance' },
+      { label: 'Assessments', to: '/docs/academic/assessments' },
+      { label: 'Progression', to: '/docs/academic/progression' },
+    ],
+  },
+  {
+    title: 'Finance',
+    Icon: Icon.Finance,
+    links: [
+      { label: 'Fee Setup', to: '/docs/finance/fee-setup' },
+      { label: 'Invoicing', to: '/docs/finance/invoicing' },
+      { label: 'Payments & Plans', to: '/docs/finance/payments' },
+      { label: 'Scholarships', to: '/docs/finance/scholarships' },
+      { label: 'Budgets & Expenses', to: '/docs/finance/budgets' },
+    ],
+  },
+  {
+    title: 'Communication',
+    Icon: Icon.Communication,
+    links: [
+      { label: 'Inbox & Messaging', to: '/docs/communication/inbox' },
+      { label: 'Notifications', to: '/docs/communication/notifications' },
+      { label: 'Documents', to: '/docs/communication/documents' },
+    ],
+  },
+  {
+    title: 'Administration',
+    Icon: Icon.Admin,
+    links: [
+      { label: 'Staff Management', to: '/docs/administration/staff' },
+      { label: 'Parents & Guardians', to: '/docs/administration/parents' },
+      { label: 'Inventory', to: '/docs/administration/inventory' },
+      { label: 'Calendar', to: '/docs/administration/calendar' },
+      { label: 'System Settings', to: '/docs/administration/settings' },
+    ],
+  },
+  {
+    title: 'Reports & Analytics',
+    Icon: Icon.Reports,
+    links: [
+      { label: 'Reports Overview', to: '/docs/reports/overview' },
+      { label: 'Report Packs', to: '/docs/reports/report-packs' },
+      { label: 'Dashboards', to: '/docs/reports/dashboard' },
+    ],
+  },
+  {
+    title: 'Support',
+    Icon: Icon.Wrench,
+    links: [
+      { label: 'Guardian App', to: '/docs/guardian-app/overview' },
+      { label: 'Platform Admin', to: '/docs/platform-admin/overview' },
+      { label: 'Common Issues', to: '/docs/troubleshooting/common-issues' },
+      { label: 'FAQ', to: '/docs/troubleshooting/faq' },
+      { label: 'Release Notes', to: '/blog' },
+    ],
+  },
+];
+
+function FeatureCard({ title, description, link, Icon: CardIcon, gradient, iconColor }) {
   return (
-    <Link className={styles.card} to={link} style={{ '--module-color': color }}>
-      <div className={styles.cardIconWrapper} style={{ '--module-icon-bg': iconBg(color) }}>
-        <span className={styles.cardIcon}>{icon}</span>
+    <Link className={styles.featureCard} to={link}>
+      <div className={styles.featureCardBody}>
+        <span className={styles.featureCardIcon} style={{ color: iconColor }}>
+          <CardIcon />
+        </span>
+        <h3 className={styles.featureCardTitle}>{title}</h3>
+        <p className={styles.featureCardDesc}>{description}</p>
+        <span className={styles.featureCardCta}>
+          View guide <Icon.ArrowRight />
+        </span>
       </div>
-      <h3 className={styles.cardTitle}>{title}</h3>
-      <p className={styles.cardDescription}>{description}</p>
-      <span className={styles.cardCta}>
-        View docs {icons.arrowRight}
-      </span>
+      <div className={styles.featureCardArt} style={{ background: gradient }} aria-hidden="true" />
     </Link>
   );
 }
 
-function QuickLinkCard({ icon, color, title, description, link, linkLabel }) {
+function TopicGroup({ title, Icon: GroupIcon, links }) {
   return (
-    <div className={styles.quickLink}>
-      <div className={styles.quickLinkIconWrapper} style={{ '--module-color': color, '--module-icon-bg': iconBg(color) }}>
-        {icon}
+    <div className={styles.topicGroup}>
+      <div className={styles.topicGroupHeader}>
+        <span className={styles.topicGroupIcon}><GroupIcon /></span>
+        <h3 className={styles.topicGroupTitle}>{title}</h3>
       </div>
-      <div>
-        <h3 className={styles.quickLinkTitle}>{title}</h3>
-        <p className={styles.quickLinkText}>{description}</p>
-        <Link to={link} className={styles.quickLinkCta}>
-          {linkLabel} {icons.arrowRight}
-        </Link>
-      </div>
+      <ul className={styles.topicGroupLinks}>
+        {links.map((l) => (
+          <li key={l.label}>
+            <Link to={l.to} className={styles.topicLink}>{l.label}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -197,47 +223,48 @@ function QuickLinkCard({ icon, color, title, description, link, linkLabel }) {
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout title="Home" description={siteConfig.tagline}>
-      <header className={styles.hero}>
-        <div className={styles.heroInner}>
-          <p className={styles.heroBadge}>EMS School Operating System</p>
-          <h1 className={styles.heroTitle}>Help Centre</h1>
-          <p className={styles.heroSubtitle}>
-            Complete user guides, step-by-step tutorials, and support resources
-            for every module of the EMS platform.
+    <Layout title="Overview" description={siteConfig.tagline}>
+      <main className={styles.page}>
+
+        {/* Page header — no full-bleed hero, just clean heading */}
+        <div className={styles.pageHeader}>
+          <h1 className={styles.pageTitle}>EMS Help Centre</h1>
+          <p className={styles.pageSubtitle}>
+            User guides, step-by-step tutorials, and support documentation for
+            the EMS School Operating System. Select a topic below to get started.
           </p>
-          <div className={styles.heroCta}>
-            <Link className="button button--primary button--lg" to="/docs/getting-started/overview">
-              Get started
+          <div className={styles.headerLinks}>
+            <Link to="/docs/getting-started/overview" className={styles.primaryLink}>
+              Quick start <Icon.ArrowRight />
             </Link>
-            <Link className="button button--outline button--lg" to="/docs/troubleshooting/faq">
-              Browse FAQ
+            <Link to="/docs/troubleshooting/faq" className={styles.secondaryLink}>
+              FAQ
             </Link>
           </div>
         </div>
-      </header>
 
-      <main className={styles.main}>
-        <section className={styles.moduleSection}>
-          <h2 className={styles.sectionTitle}>Browse by Module</h2>
-          <p className={styles.sectionSubtitle}>
-            Select a module below to access step-by-step guides, video walkthroughs, and tips.
-          </p>
-          <div className={styles.moduleGrid}>
-            {modules.map((m) => (
-              <ModuleCard key={m.title} {...m} />
+        {/* Feature cards — 2×2 grid */}
+        <section className={styles.section}>
+          <div className={styles.featureGrid}>
+            {featureCards.map((card) => (
+              <FeatureCard key={card.title} {...card} />
             ))}
           </div>
         </section>
 
-        <section className={styles.quickLinksSection}>
-          <h2 className={styles.sectionTitle}>Quick Access</h2>
-          <div className={styles.quickLinks}>
-            {quickLinks.map((q) => (
-              <QuickLinkCard key={q.title} {...q} />
+        {/* Divider */}
+        <hr className={styles.divider} />
+
+        {/* Topic groups — 3-column link lists */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionHeading}>All modules</h2>
+          <div className={styles.topicGrid}>
+            {topicGroups.map((g) => (
+              <TopicGroup key={g.title} {...g} />
             ))}
           </div>
         </section>
+
       </main>
     </Layout>
   );

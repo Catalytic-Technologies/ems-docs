@@ -102,7 +102,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: 'Getting Started',
@@ -136,13 +136,6 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
         additionalLanguages: ['bash', 'json'],
-      },
-      announcementBar: {
-        id: 'welcome',
-        content: 'Welcome to the EMS Help Centre — your complete guide to the EMS School Operating System.',
-        backgroundColor: '#1a73e8',
-        textColor: '#ffffff',
-        isCloseable: true,
       },
     }),
 };
