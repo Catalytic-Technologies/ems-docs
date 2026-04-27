@@ -1,72 +1,100 @@
 /**
- * EMS Help Centre — theme inspired by GitBook's clean, neutral aesthetic
+ * EMS Help Centre — Design System
+ *
+ * Two-tone palette: Blue (#2563eb) primary + Slate (#64748b) secondary
+ * Design language: GitBook-inspired — clean white, outline icons, steppers
+ *
+ * This file is the single source of truth for the EMS docs design language.
+ * It also defines the official website component vocabulary.
  */
 
-/* ── Fonts ────────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   FONTS
+   ───────────────────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* ── Light mode tokens ────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS — Light mode
+   ───────────────────────────────────────────────────────────────────── */
 :root {
-  /* Brand: EMS blue */
-  --ifm-color-primary:          #2563eb;
-  --ifm-color-primary-dark:     #1d4ed8;
+  /* ── Primary: EMS Blue ── */
+  --ems-blue-50:  #eff6ff;
+  --ems-blue-100: #dbeafe;
+  --ems-blue-200: #bfdbfe;
+  --ems-blue-500: #3b82f6;
+  --ems-blue-600: #2563eb;   /* primary action */
+  --ems-blue-700: #1d4ed8;
+  --ems-blue-900: #1e3a8a;
+
+  /* ── Secondary: Slate Grey ── */
+  --ems-slate-50:  #f8fafc;
+  --ems-slate-100: #f1f5f9;
+  --ems-slate-200: #e2e8f0;
+  --ems-slate-300: #cbd5e1;
+  --ems-slate-400: #94a3b8;
+  --ems-slate-500: #64748b;  /* secondary text */
+  --ems-slate-700: #334155;
+  --ems-slate-900: #0f172a;
+
+  /* ── Docusaurus theme overrides ── */
+  --ifm-color-primary:          var(--ems-blue-600);
+  --ifm-color-primary-dark:     var(--ems-blue-700);
   --ifm-color-primary-darker:   #1e40af;
-  --ifm-color-primary-darkest:  #1e3a8a;
-  --ifm-color-primary-light:    #3b82f6;
+  --ifm-color-primary-darkest:  var(--ems-blue-900);
+  --ifm-color-primary-light:    var(--ems-blue-500);
   --ifm-color-primary-lighter:  #60a5fa;
-  --ifm-color-primary-lightest: #93c5fd;
+  --ifm-color-primary-lightest: var(--ems-blue-200);
 
-  /* Typography */
-  --ifm-font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --ifm-heading-font-weight: 700;
-  --ifm-font-size-base: 15px;
-  --ifm-line-height-base: 1.75;
-  --ifm-code-font-size: 90%;
+  --ifm-font-family-base:      'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-font-size-base:        15px;
+  --ifm-line-height-base:      1.75;
+  --ifm-heading-font-weight:   700;
+  --ifm-code-font-size:        90%;
+  --ifm-code-border-radius:    4px;
 
-  /* Backgrounds — GitBook uses very clean white */
   --ifm-background-color:         #ffffff;
   --ifm-background-surface-color: #ffffff;
   --ifm-navbar-background-color:  #ffffff;
-  --ifm-footer-background-color:  #f8fafc;
+  --ifm-navbar-height:            56px;
+  --ifm-navbar-shadow:            0 1px 0 0 var(--ems-slate-200);
 
-  /* Borders & emphasis */
-  --ifm-color-emphasis-100: #f1f5f9;
-  --ifm-color-emphasis-200: #e2e8f0;
-  --ifm-color-emphasis-300: #cbd5e1;
-  --ifm-color-emphasis-500: #64748b;
-  --ifm-color-emphasis-600: #475569;
-  --ifm-color-emphasis-700: #334155;
-  --ifm-color-emphasis-900: #0f172a;
+  --ifm-sidebar-width:  260px;
+  --ifm-global-radius:  6px;
 
-  /* Navbar */
-  --ifm-navbar-height: 56px;
-  --ifm-navbar-shadow: 0 1px 0 0 var(--ifm-color-emphasis-200);
+  --ifm-color-emphasis-100: var(--ems-slate-100);
+  --ifm-color-emphasis-200: var(--ems-slate-200);
+  --ifm-color-emphasis-300: var(--ems-slate-300);
+  --ifm-color-emphasis-400: var(--ems-slate-400);
+  --ifm-color-emphasis-500: var(--ems-slate-500);
+  --ifm-color-emphasis-600: var(--ems-slate-500);
+  --ifm-color-emphasis-700: var(--ems-slate-700);
+  --ifm-color-emphasis-900: var(--ems-slate-900);
 
-  /* Sidebar */
-  --ifm-sidebar-width: 256px;
+  --docusaurus-highlighted-code-line-bg: rgba(37, 99, 235, 0.06);
 
-  /* Global radius */
-  --ifm-global-radius: 6px;
-  --ifm-code-border-radius: 4px;
+  /* ── Admonition tokens ── */
+  --ems-adm-note-bg:      var(--ems-blue-50);   --ems-adm-note-line:    var(--ems-blue-600); --ems-adm-note-text:    var(--ems-blue-900);
+  --ems-adm-tip-bg:       #f0fdf4;              --ems-adm-tip-line:     #16a34a;            --ems-adm-tip-text:     #14532d;
+  --ems-adm-info-bg:      #f0f9ff;              --ems-adm-info-line:    #0284c7;            --ems-adm-info-text:    #0c4a6e;
+  --ems-adm-warning-bg:   #fffbeb;              --ems-adm-warning-line: #d97706;            --ems-adm-warning-text: #78350f;
+  --ems-adm-danger-bg:    #fff1f2;              --ems-adm-danger-line:  #dc2626;            --ems-adm-danger-text:  #7f1d1d;
+  --ems-adm-caution-bg:   #fff7ed;              --ems-adm-caution-line: #ea580c;            --ems-adm-caution-text: #7c2d12;
 
-  /* Highlighted code line */
-  --docusaurus-highlighted-code-line-bg: rgba(37, 99, 235, 0.07);
-
-  /* Admonition accent colours */
-  --ems-note-bg:      #eff6ff; --ems-note-border:    #2563eb; --ems-note-color:    #1e3a8a;
-  --ems-tip-bg:       #f0fdf4; --ems-tip-border:     #16a34a; --ems-tip-color:     #14532d;
-  --ems-info-bg:      #f0f9ff; --ems-info-border:    #0284c7; --ems-info-color:    #0c4a6e;
-  --ems-warning-bg:   #fffbeb; --ems-warning-border: #d97706; --ems-warning-color: #78350f;
-  --ems-danger-bg:    #fff1f2; --ems-danger-border:  #dc2626; --ems-danger-color:  #7f1d1d;
-  --ems-caution-bg:   #fff7ed; --ems-caution-border: #ea580c; --ems-caution-color: #7c2d12;
+  /* ── Stepper tokens ── */
+  --ems-step-badge-bg:    var(--ems-blue-600);
+  --ems-step-badge-color: #ffffff;
+  --ems-step-line-color:  var(--ems-slate-200);
+  --ems-step-icon-color:  var(--ems-blue-600);
 }
 
-/* ── Dark mode tokens ─────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS — Dark mode
+   ───────────────────────────────────────────────────────────────────── */
 [data-theme='dark'] {
   --ifm-color-primary:          #60a5fa;
-  --ifm-color-primary-dark:     #3b82f6;
-  --ifm-color-primary-darker:   #2563eb;
-  --ifm-color-primary-darkest:  #1d4ed8;
+  --ifm-color-primary-dark:     var(--ems-blue-500);
+  --ifm-color-primary-darker:   var(--ems-blue-600);
+  --ifm-color-primary-darkest:  var(--ems-blue-700);
   --ifm-color-primary-light:    #93c5fd;
   --ifm-color-primary-lighter:  #bfdbfe;
   --ifm-color-primary-lightest: #dbeafe;
@@ -74,11 +102,12 @@
   --ifm-background-color:         #0f172a;
   --ifm-background-surface-color: #1e293b;
   --ifm-navbar-background-color:  #0f172a;
-  --ifm-footer-background-color:  #0f172a;
+  --ifm-navbar-shadow:            0 1px 0 0 #1e293b;
 
   --ifm-color-emphasis-100: #1e293b;
   --ifm-color-emphasis-200: #334155;
   --ifm-color-emphasis-300: #475569;
+  --ifm-color-emphasis-400: #64748b;
   --ifm-color-emphasis-500: #94a3b8;
   --ifm-color-emphasis-600: #cbd5e1;
   --ifm-color-emphasis-700: #e2e8f0;
@@ -86,88 +115,101 @@
 
   --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.1);
 
-  --ems-note-bg:      #172554; --ems-note-border:    #60a5fa; --ems-note-color:    #bfdbfe;
-  --ems-tip-bg:       #052e16; --ems-tip-border:     #4ade80; --ems-tip-color:     #bbf7d0;
-  --ems-info-bg:      #082f49; --ems-info-border:    #38bdf8; --ems-info-color:    #bae6fd;
-  --ems-warning-bg:   #1c1400; --ems-warning-border: #fbbf24; --ems-warning-color: #fde68a;
-  --ems-danger-bg:    #1c0303; --ems-danger-border:  #f87171; --ems-danger-color:  #fecaca;
-  --ems-caution-bg:   #1c0c00; --ems-caution-border: #fb923c; --ems-caution-color: #fed7aa;
+  --ems-adm-note-bg:      #172554; --ems-adm-note-line:    #60a5fa; --ems-adm-note-text:    #bfdbfe;
+  --ems-adm-tip-bg:       #052e16; --ems-adm-tip-line:     #4ade80; --ems-adm-tip-text:     #bbf7d0;
+  --ems-adm-info-bg:      #082f49; --ems-adm-info-line:    #38bdf8; --ems-adm-info-text:    #bae6fd;
+  --ems-adm-warning-bg:   #1c1400; --ems-adm-warning-line: #fbbf24; --ems-adm-warning-text: #fde68a;
+  --ems-adm-danger-bg:    #1c0303; --ems-adm-danger-line:  #f87171; --ems-adm-danger-text:  #fecaca;
+  --ems-adm-caution-bg:   #1c0c00; --ems-adm-caution-line: #fb923c; --ems-adm-caution-text: #fed7aa;
+
+  --ems-step-badge-bg:    #60a5fa;
+  --ems-step-badge-color: #0f172a;
+  --ems-step-line-color:  #334155;
+  --ems-step-icon-color:  #60a5fa;
 }
 
-/* ── Base ─────────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   BASE
+   ───────────────────────────────────────────────────────────────────── */
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Navbar — clean white, GitBook style ──────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   NAVBAR
+   ───────────────────────────────────────────────────────────────────── */
 .navbar {
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  padding: 0 1.5rem;
+  border-bottom: 1px solid var(--ems-slate-200);
+  padding: 0 1.25rem;
 }
 
-.navbar__brand {
-  font-weight: 700;
-  font-size: 0.95rem;
+[data-theme='dark'] .navbar {
+  border-bottom-color: #1e293b;
 }
 
 .navbar__title {
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  font-size: 0.95rem;
 }
 
 .navbar__link {
-  font-size: 0.875rem;
+  font-size: 0.855rem;
   font-weight: 500;
   color: var(--ifm-color-emphasis-600);
-  border-radius: var(--ifm-global-radius);
-  padding: 0.35rem 0.6rem;
+  border-radius: 5px;
+  padding: 0.3rem 0.55rem;
+  transition: background 0.12s, color 0.12s;
 }
 
 .navbar__link:hover,
 .navbar__link--active {
-  color: var(--ifm-color-emphasis-900);
   background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-900);
 }
 
-/* ── Sidebar — clean, minimal ─────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   SIDEBAR
+   ───────────────────────────────────────────────────────────────────── */
 .theme-doc-sidebar-container {
   border-right: 1px solid var(--ifm-color-emphasis-200) !important;
 }
 
 .menu {
   padding: 1rem 0.75rem !important;
-  font-size: 0.875rem;
 }
 
-/* Category labels — small, uppercase, muted (GitBook-style) */
+/* Category header — uppercase micro-label (GitBook style) */
 .menu__list-item-collapsible .menu__link--sublist {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--ifm-color-emphasis-500);
-  padding: 0.5rem 0.75rem 0.25rem;
+  letter-spacing: 0.09em;
+  color: var(--ifm-color-emphasis-400);
+  padding: 0.55rem 0.75rem 0.2rem;
   background: none;
+  cursor: default;
 }
 
 .menu__list-item-collapsible .menu__link--sublist:hover {
   background: none;
-  color: var(--ifm-color-emphasis-700);
+  color: var(--ifm-color-emphasis-500);
 }
 
-/* Remove caret indent for top-level categories */
+/* Hide the expand/collapse caret for top-level categories */
 .menu__link--sublist-caret::after {
   display: none;
 }
 
-/* Sidebar items */
+/* Sidebar item */
 .menu__link {
-  font-size: 0.875rem;
+  font-size: 0.855rem;
   font-weight: 400;
   color: var(--ifm-color-emphasis-700);
-  border-radius: var(--ifm-global-radius);
-  padding: 0.3rem 0.75rem;
+  border-radius: 5px;
+  padding: 0.28rem 0.75rem;
+  transition: background 0.1s, color 0.1s;
 }
 
 .menu__link:hover {
@@ -178,32 +220,42 @@ body {
 .menu__link--active {
   font-weight: 600;
   color: var(--ifm-color-primary) !important;
-  background: rgba(37, 99, 235, 0.07) !important;
+  background: var(--ems-blue-50) !important;
 }
 
-/* Nested list indentation */
+[data-theme='dark'] .menu__link--active {
+  background: rgba(96, 165, 250, 0.1) !important;
+}
+
+/* Nested list — left border indent */
 .menu__list .menu__list {
-  margin-left: 0.25rem;
+  margin-left: 0;
+  padding-left: 0.6rem;
   border-left: 1px solid var(--ifm-color-emphasis-200);
-  padding-left: 0.5rem;
 }
 
-/* ── Table of contents ────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   TABLE OF CONTENTS
+   ───────────────────────────────────────────────────────────────────── */
 .table-of-contents {
   font-size: 0.8rem;
+  border-left: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .table-of-contents__link {
   color: var(--ifm-color-emphasis-500);
+  padding: 0.2rem 0;
 }
 
 .table-of-contents__link:hover,
 .table-of-contents__link--active {
   color: var(--ifm-color-primary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* ── Doc content typography ───────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   MARKDOWN CONTENT TYPOGRAPHY
+   ───────────────────────────────────────────────────────────────────── */
 .markdown {
   line-height: 1.78;
   color: var(--ifm-color-emphasis-700);
@@ -212,14 +264,14 @@ body {
 .markdown h1 {
   font-size: 2rem;
   font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   color: var(--ifm-color-emphasis-900);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .markdown h2 {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--ifm-color-emphasis-900);
@@ -235,80 +287,224 @@ body {
   margin-top: 1.75rem;
 }
 
-/* ── Admonitions ──────────────────────────────────────────────────── */
+.markdown p { margin-bottom: 1rem; }
+
+.markdown a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.12s;
+}
+
+.markdown a:hover {
+  border-bottom-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   ADMONITIONS
+   ───────────────────────────────────────────────────────────────────── */
 .theme-admonition {
   border-radius: 8px !important;
   border: 0 !important;
   border-left: 3px solid !important;
-  padding: 0.9rem 1.1rem !important;
+  padding: 0.875rem 1.1rem !important;
   margin: 1.5rem 0 !important;
   font-size: 0.9rem;
 }
 
 .alert--secondary,
-.theme-admonition-note  { background: var(--ems-note-bg)    !important; border-left-color: var(--ems-note-border)    !important; color: var(--ems-note-color)    !important; }
+.theme-admonition-note    { background: var(--ems-adm-note-bg)    !important; border-left-color: var(--ems-adm-note-line)    !important; color: var(--ems-adm-note-text)    !important; }
 .alert--success,
-.theme-admonition-tip   { background: var(--ems-tip-bg)     !important; border-left-color: var(--ems-tip-border)     !important; color: var(--ems-tip-color)     !important; }
+.theme-admonition-tip     { background: var(--ems-adm-tip-bg)     !important; border-left-color: var(--ems-adm-tip-line)     !important; color: var(--ems-adm-tip-text)     !important; }
 .alert--info,
-.theme-admonition-info  { background: var(--ems-info-bg)    !important; border-left-color: var(--ems-info-border)    !important; color: var(--ems-info-color)    !important; }
+.theme-admonition-info    { background: var(--ems-adm-info-bg)    !important; border-left-color: var(--ems-adm-info-line)    !important; color: var(--ems-adm-info-text)    !important; }
 .alert--warning,
-.theme-admonition-warning { background: var(--ems-warning-bg) !important; border-left-color: var(--ems-warning-border) !important; color: var(--ems-warning-color) !important; }
+.theme-admonition-warning { background: var(--ems-adm-warning-bg) !important; border-left-color: var(--ems-adm-warning-line) !important; color: var(--ems-adm-warning-text) !important; }
 .alert--danger,
-.theme-admonition-danger { background: var(--ems-danger-bg)  !important; border-left-color: var(--ems-danger-border)  !important; color: var(--ems-danger-color)  !important; }
-.theme-admonition-caution { background: var(--ems-caution-bg) !important; border-left-color: var(--ems-caution-border) !important; color: var(--ems-caution-color) !important; }
+.theme-admonition-danger  { background: var(--ems-adm-danger-bg)  !important; border-left-color: var(--ems-adm-danger-line)  !important; color: var(--ems-adm-danger-text)  !important; }
+.theme-admonition-caution { background: var(--ems-adm-caution-bg) !important; border-left-color: var(--ems-adm-caution-line) !important; color: var(--ems-adm-caution-text) !important; }
 
-/* Admonition title row */
 [class*='admonitionHeading'] {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   margin-bottom: 0.4rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
 [class*='admonitionContent'] p:last-child { margin-bottom: 0; }
 
-/* ── Inline code ──────────────────────────────────────────────────── */
-code {
-  border-radius: 4px;
-  padding: 0.12em 0.4em;
-  font-size: 0.875em;
-  background: var(--ifm-color-emphasis-100);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-emphasis-800, #1e293b);
-}
-
-/* ── Tables ───────────────────────────────────────────────────────── */
-table {
+/* ─────────────────────────────────────────────────────────────────────
+   TABLES — clean two-tone, row hover
+   ───────────────────────────────────────────────────────────────────── */
+.markdown table {
   font-size: 0.875rem;
   border-collapse: collapse;
   width: 100%;
-  margin: 1rem 0 1.5rem;
+  margin: 1.25rem 0 1.75rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  overflow: hidden;
+  display: table; /* override Docusaurus block display */
 }
 
-th {
-  font-weight: 600;
+.markdown table thead tr {
+  background: var(--ems-blue-50);
+  border-bottom: 2px solid var(--ems-blue-200);
+}
+
+[data-theme='dark'] .markdown table thead tr {
+  background: rgba(96, 165, 250, 0.08);
+  border-bottom-color: rgba(96, 165, 250, 0.2);
+}
+
+.markdown table th {
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ems-blue-700);
+  padding: 0.65rem 1rem;
   text-align: left;
-  padding: 0.55rem 0.875rem;
-  background: var(--ifm-color-emphasis-100);
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  border: none;
+  white-space: nowrap;
 }
 
-td {
-  padding: 0.55rem 0.875rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+[data-theme='dark'] .markdown table th {
+  color: var(--ifm-color-primary-light);
+}
+
+.markdown table td {
+  padding: 0.65rem 1rem;
+  border: none;
+  border-top: 1px solid var(--ifm-color-emphasis-100);
   vertical-align: top;
+  color: var(--ifm-color-emphasis-700);
 }
 
-/* ── Role badges ──────────────────────────────────────────────────── */
+.markdown table tbody tr {
+  transition: background 0.1s;
+}
+
+.markdown table tbody tr:hover {
+  background: var(--ems-slate-50);
+}
+
+[data-theme='dark'] .markdown table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.markdown table tbody tr:nth-child(even) {
+  background: var(--ems-slate-50);
+}
+
+[data-theme='dark'] .markdown table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   STEPPER — .steps class for .md files
+   Usage: wrap an ordered list with <div class="steps">...</div>
+   ───────────────────────────────────────────────────────────────────── */
+.steps ol {
+  list-style: none;
+  counter-reset: step-counter;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.steps ol > li {
+  counter-increment: step-counter;
+  position: relative;
+  padding-left: 3.25rem;
+  padding-bottom: 2rem;
+  min-height: 2.75rem;
+}
+
+/* Vertical connector line */
+.steps ol > li::after {
+  content: '';
+  position: absolute;
+  left: 19px;        /* centre of 40px badge */
+  top: 40px;
+  bottom: 0;
+  width: 2px;
+  background: var(--ems-step-line-color);
+}
+
+/* No line after last step */
+.steps ol > li:last-child::after {
+  display: none;
+}
+
+/* Numbered badge */
+.steps ol > li::before {
+  content: counter(step-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ems-step-badge-bg);
+  color: var(--ems-step-badge-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px var(--ifm-background-color);
+  z-index: 1;
+}
+
+/* Step content — first paragraph is the title */
+.steps ol > li > p:first-child,
+.steps ol > li > strong:first-child {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-900);
+  margin-top: 0.5rem;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.steps ol > li > p {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 0.5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   INLINE CODE
+   ───────────────────────────────────────────────────────────────────── */
+code {
+  border-radius: 4px;
+  padding: 0.12em 0.42em;
+  font-size: 0.875em;
+  background: var(--ems-slate-100);
+  border: 1px solid var(--ems-slate-200);
+  color: var(--ems-slate-900);
+}
+
+[data-theme='dark'] code {
+  background: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   ROLE BADGES
+   ───────────────────────────────────────────────────────────────────── */
 .role-badge {
   display: inline-flex;
   align-items: center;
-  padding: 1px 9px;
+  padding: 2px 10px;
   border-radius: 20px;
   font-size: 0.7rem;
   font-weight: 600;
@@ -318,29 +514,33 @@ td {
   vertical-align: middle;
 }
 
-.role-badge--admin    { background: #dbeafe; color: #1d4ed8; }
+.role-badge--admin    { background: var(--ems-blue-100);  color: var(--ems-blue-700); }
 .role-badge--bursar   { background: #dcfce7; color: #15803d; }
 .role-badge--teacher  { background: #fef9c3; color: #a16207; }
 .role-badge--guardian { background: #fee2e2; color: #b91c1c; }
 .role-badge--platform { background: #ede9fe; color: #6d28d9; }
 
-[data-theme='dark'] .role-badge--admin    { background: #1e3a8a; color: #93c5fd; }
+[data-theme='dark'] .role-badge--admin    { background: var(--ems-blue-900);  color: var(--ems-blue-200); }
 [data-theme='dark'] .role-badge--bursar   { background: #052e16; color: #86efac; }
 [data-theme='dark'] .role-badge--teacher  { background: #1c1400; color: #fde68a; }
 [data-theme='dark'] .role-badge--guardian { background: #450a0a; color: #fca5a5; }
 [data-theme='dark'] .role-badge--platform { background: #2e1065; color: #c4b5fd; }
 
-/* ── Screenshot images ────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   SCREENSHOT IMAGES
+   ───────────────────────────────────────────────────────────────────── */
 .docs-screenshot {
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
   margin: 1.25rem 0;
   max-width: 100%;
   display: block;
 }
 
-/* ── Video embeds ─────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   VIDEO EMBED
+   ───────────────────────────────────────────────────────────────────── */
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -349,7 +549,7 @@ td {
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--ifm-color-emphasis-200);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
 .video-wrapper iframe {
@@ -360,72 +560,80 @@ td {
   border: none;
 }
 
-/* ── Step numbers ─────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   STEP NUMBER — inline use (legacy, use .steps class instead)
+   ───────────────────────────────────────────────────────────────────── */
 .step-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
-  background: var(--ifm-color-primary);
-  color: white;
+  width: 26px;
+  height: 26px;
+  background: var(--ems-step-badge-bg);
+  color: var(--ems-step-badge-color);
   border-radius: 50%;
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-right: 8px;
   flex-shrink: 0;
 }
 
-/* ── Breadcrumbs ──────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   BREADCRUMBS
+   ───────────────────────────────────────────────────────────────────── */
 .breadcrumbs__link {
   font-size: 0.8rem;
   color: var(--ifm-color-emphasis-500);
 }
 
-/* ── Pagination ───────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────
+   PAGINATION
+   ───────────────────────────────────────────────────────────────────── */
 [class*='paginationNavLink'] {
   border-radius: 8px;
   border-color: var(--ifm-color-emphasis-200);
   font-size: 0.875rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-/* ── Footer — very minimal, GitBook-style ─────────────────────────── */
+[class*='paginationNavLink']:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   FOOTER
+   ───────────────────────────────────────────────────────────────────── */
 .footer {
   border-top: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ems-slate-50) !important;
+}
+
+[data-theme='dark'] .footer {
+  background: #0f172a !important;
+  border-top-color: #1e293b;
 }
 
 .footer__title {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   font-weight: 700;
   color: var(--ifm-color-emphasis-500);
 }
 
 .footer__link-item {
   font-size: 0.875rem;
-  color: var(--ifm-color-emphasis-600);
+  color: var(--ifm-color-emphasis-600) !important;
+  transition: color 0.12s;
 }
 
 .footer__link-item:hover {
-  color: var(--ifm-color-emphasis-900);
+  color: var(--ifm-color-emphasis-900) !important;
   text-decoration: none;
 }
 
 .footer__copyright {
-  font-size: 0.8rem;
-  color: var(--ifm-color-emphasis-500);
-}
-
-/* ── Search ───────────────────────────────────────────────────────── */
-.navbar__search-input {
-  border-radius: 6px;
-  font-size: 0.875rem;
-}
-
-/* ── Announcement bar ─────────────────────────────────────────────── */
-[class*='announcementBarContent'] {
-  font-size: 0.825rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-size: 0.78rem;
+  color: var(--ifm-color-emphasis-400);
 }

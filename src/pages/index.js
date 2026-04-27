@@ -4,8 +4,15 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
-// ── SVG icons (CoreUI-style, 24×24) ───────────────────────────────
+// ── Outline SVG icons — 24 × 24, 1.75px stroke ────────────────────
 const Icon = {
+  ArrowRight: ({ size = 14 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12"/>
+      <polyline points="12 5 19 12 12 19"/>
+    </svg>
+  ),
   GettingStarted: () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10"/>
@@ -51,78 +58,99 @@ const Icon = {
       <polyline points="9 22 9 12 15 12 15 22"/>
     </svg>
   ),
-  Mobile: () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-      <line x1="12" y1="18" x2="12.01" y2="18"/>
-    </svg>
-  ),
-  Settings: () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="3"/>
-      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-    </svg>
-  ),
   Wrench: () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
     </svg>
   ),
-  Book: () => (
+  Login: () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+      <polyline points="10 17 15 12 10 7"/>
+      <line x1="15" y1="12" x2="3" y2="12"/>
     </svg>
   ),
-  ArrowRight: () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
-      <line x1="5" y1="12" x2="19" y2="12"/>
-      <polyline points="12 5 19 12 12 19"/>
+  Dashboard: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="7" height="7"/>
+      <rect x="14" y="3" width="7" height="7"/>
+      <rect x="14" y="14" width="7" height="7"/>
+      <rect x="3" y="14" width="7" height="7"/>
+    </svg>
+  ),
+  Module: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
     </svg>
   ),
 };
 
-// ── Feature cards (top 2×2 grid, GitBook-style) ───────────────────
+// ── 2×2 Feature cards ──────────────────────────────────────────────
 const featureCards = [
   {
     title: 'Getting Started',
-    description: 'Set up your account, learn the dashboard, and understand roles and permissions across the platform.',
+    description: 'Set up your account, understand the dashboard, and learn roles and permissions.',
     link: '/docs/getting-started/overview',
-    Icon: Icon.GettingStarted,
-    gradient: 'linear-gradient(135deg, #e0f2fe 0%, #bfdbfe 100%)',
-    iconColor: '#1d4ed8',
+    CardIcon: Icon.GettingStarted,
+    accentColor: '#2563eb',
+    artGradient: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)',
   },
   {
-    title: 'Academic Management',
-    description: 'Manage students, classes, attendance, assessments, timetables, and end-of-year progression.',
+    title: 'Academic',
+    description: 'Students, classes, attendance, assessments, timetables, and end-of-year progression.',
     link: '/docs/academic/students',
-    Icon: Icon.Academic,
-    gradient: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)',
-    iconColor: '#065f46',
+    CardIcon: Icon.Academic,
+    accentColor: '#0d9488',
+    artGradient: 'linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%)',
   },
   {
     title: 'Finance & Billing',
-    description: 'Configure fee structures, generate invoices, record payments, and manage budgets and expenses.',
+    description: 'Fee structures, invoicing, payments, scholarships, budgets, and requisitions.',
     link: '/docs/finance/fee-setup',
-    Icon: Icon.Finance,
-    gradient: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
-    iconColor: '#92400e',
+    CardIcon: Icon.Finance,
+    accentColor: '#2563eb',
+    artGradient: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)',
   },
   {
-    title: 'Admissions Portal',
-    description: 'Run admission cycles, manage applications through the pipeline, and operate the public portal.',
+    title: 'Admissions',
+    description: 'Admission cycles, application pipeline, and the public admissions portal.',
     link: '/docs/admissions/overview',
-    Icon: Icon.Admissions,
-    gradient: 'linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%)',
-    iconColor: '#5b21b6',
+    CardIcon: Icon.Admissions,
+    accentColor: '#7c3aed',
+    artGradient: 'linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%)',
   },
 ];
 
-// ── Topic groups (3-column link lists, GitBook-style) ─────────────
+// ── Quick-start stepper ────────────────────────────────────────────
+const quickStartSteps = [
+  {
+    num: '01',
+    title: 'Log in',
+    description: 'Use the credentials your school administrator provided. First-time users set a new password on first login.',
+    link: '/docs/getting-started/login-and-navigation',
+    StepIcon: Icon.Login,
+  },
+  {
+    num: '02',
+    title: 'Explore your dashboard',
+    description: 'Your dashboard surfaces module shortcuts, pending tasks, and recent activity tailored to your role.',
+    link: '/docs/getting-started/overview',
+    StepIcon: Icon.Dashboard,
+  },
+  {
+    num: '03',
+    title: 'Open a module',
+    description: 'Navigate via the sidebar to Academic, Finance, Admissions, or any other module to begin your workflow.',
+    link: '/docs/getting-started/roles-and-permissions',
+    StepIcon: Icon.Module,
+  },
+];
+
+// ── Topic groups ───────────────────────────────────────────────────
 const topicGroups = [
   {
     title: 'Academic',
-    Icon: Icon.Academic,
+    GroupIcon: Icon.Academic,
     links: [
       { label: 'Students', to: '/docs/academic/students' },
       { label: 'Classes & Timetables', to: '/docs/academic/classes' },
@@ -133,7 +161,7 @@ const topicGroups = [
   },
   {
     title: 'Finance',
-    Icon: Icon.Finance,
+    GroupIcon: Icon.Finance,
     links: [
       { label: 'Fee Setup', to: '/docs/finance/fee-setup' },
       { label: 'Invoicing', to: '/docs/finance/invoicing' },
@@ -144,7 +172,7 @@ const topicGroups = [
   },
   {
     title: 'Communication',
-    Icon: Icon.Communication,
+    GroupIcon: Icon.Communication,
     links: [
       { label: 'Inbox & Messaging', to: '/docs/communication/inbox' },
       { label: 'Notifications', to: '/docs/communication/notifications' },
@@ -153,9 +181,9 @@ const topicGroups = [
   },
   {
     title: 'Administration',
-    Icon: Icon.Admin,
+    GroupIcon: Icon.Admin,
     links: [
-      { label: 'Staff Management', to: '/docs/administration/staff' },
+      { label: 'Staff', to: '/docs/administration/staff' },
       { label: 'Parents & Guardians', to: '/docs/administration/parents' },
       { label: 'Inventory', to: '/docs/administration/inventory' },
       { label: 'Calendar', to: '/docs/administration/calendar' },
@@ -164,7 +192,7 @@ const topicGroups = [
   },
   {
     title: 'Reports & Analytics',
-    Icon: Icon.Reports,
+    GroupIcon: Icon.Reports,
     links: [
       { label: 'Reports Overview', to: '/docs/reports/overview' },
       { label: 'Report Packs', to: '/docs/reports/report-packs' },
@@ -172,8 +200,8 @@ const topicGroups = [
     ],
   },
   {
-    title: 'Support',
-    Icon: Icon.Wrench,
+    title: 'Support & Admin',
+    GroupIcon: Icon.Wrench,
     links: [
       { label: 'Guardian App', to: '/docs/guardian-app/overview' },
       { label: 'Platform Admin', to: '/docs/platform-admin/overview' },
@@ -184,32 +212,58 @@ const topicGroups = [
   },
 ];
 
-function FeatureCard({ title, description, link, Icon: CardIcon, gradient, iconColor }) {
+// ── Sub-components ─────────────────────────────────────────────────
+function FeatureCard({ title, description, link, CardIcon, accentColor, artGradient }) {
   return (
-    <Link className={styles.featureCard} to={link}>
-      <div className={styles.featureCardBody}>
-        <span className={styles.featureCardIcon} style={{ color: iconColor }}>
+    <Link className={styles.card} to={link} style={{ '--accent': accentColor }}>
+      <div className={styles.cardBody}>
+        <span className={styles.cardIcon}>
           <CardIcon />
         </span>
-        <h3 className={styles.featureCardTitle}>{title}</h3>
-        <p className={styles.featureCardDesc}>{description}</p>
-        <span className={styles.featureCardCta}>
+        <h3 className={styles.cardTitle}>{title}</h3>
+        <p className={styles.cardDesc}>{description}</p>
+        <span className={styles.cardCta}>
           View guide <Icon.ArrowRight />
         </span>
       </div>
-      <div className={styles.featureCardArt} style={{ background: gradient }} aria-hidden="true" />
+      <div className={styles.cardArt} style={{ background: artGradient }} aria-hidden="true">
+        <span className={styles.cardArtIcon}>
+          <CardIcon />
+        </span>
+      </div>
     </Link>
   );
 }
 
-function TopicGroup({ title, Icon: GroupIcon, links }) {
+function StepCard({ num, title, description, link, StepIcon, isLast }) {
+  return (
+    <div className={styles.stepItem}>
+      <div className={styles.stepTrack}>
+        <div className={styles.stepBadge}>{num}</div>
+        {!isLast && <div className={styles.stepLine} aria-hidden="true" />}
+      </div>
+      <div className={styles.stepContent}>
+        <div className={styles.stepIconRow}>
+          <span className={styles.stepIcon}><StepIcon /></span>
+          <h3 className={styles.stepTitle}>{title}</h3>
+        </div>
+        <p className={styles.stepDesc}>{description}</p>
+        <Link to={link} className={styles.stepLink}>
+          Learn more <Icon.ArrowRight />
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function TopicGroup({ title, GroupIcon, links }) {
   return (
     <div className={styles.topicGroup}>
-      <div className={styles.topicGroupHeader}>
-        <span className={styles.topicGroupIcon}><GroupIcon /></span>
-        <h3 className={styles.topicGroupTitle}>{title}</h3>
+      <div className={styles.topicHeader}>
+        <span className={styles.topicIcon}><GroupIcon /></span>
+        <span className={styles.topicTitle}>{title}</span>
       </div>
-      <ul className={styles.topicGroupLinks}>
+      <ul className={styles.topicLinks}>
         {links.map((l) => (
           <li key={l.label}>
             <Link to={l.to} className={styles.topicLink}>{l.label}</Link>
@@ -220,44 +274,60 @@ function TopicGroup({ title, Icon: GroupIcon, links }) {
   );
 }
 
+// ── Page ───────────────────────────────────────────────────────────
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout title="Overview" description={siteConfig.tagline}>
       <main className={styles.page}>
 
-        {/* Page header — no full-bleed hero, just clean heading */}
-        <div className={styles.pageHeader}>
+        {/* ── Header ── */}
+        <header className={styles.pageHeader}>
           <h1 className={styles.pageTitle}>EMS Help Centre</h1>
           <p className={styles.pageSubtitle}>
-            User guides, step-by-step tutorials, and support documentation for
-            the EMS School Operating System. Select a topic below to get started.
+            Complete user guides, step-by-step tutorials, and reference documentation
+            for every module of the EMS School Operating System.
           </p>
-          <div className={styles.headerLinks}>
-            <Link to="/docs/getting-started/overview" className={styles.primaryLink}>
+          <div className={styles.headerCtas}>
+            <Link to="/docs/getting-started/overview" className={styles.ctaPrimary}>
               Quick start <Icon.ArrowRight />
             </Link>
-            <Link to="/docs/troubleshooting/faq" className={styles.secondaryLink}>
-              FAQ
+            <Link to="/docs/troubleshooting/faq" className={styles.ctaSecondary}>
+              Browse FAQ
             </Link>
           </div>
-        </div>
+        </header>
 
-        {/* Feature cards — 2×2 grid */}
+        {/* ── Feature cards 2×2 ── */}
         <section className={styles.section}>
-          <div className={styles.featureGrid}>
-            {featureCards.map((card) => (
-              <FeatureCard key={card.title} {...card} />
+          <div className={styles.cardGrid}>
+            {featureCards.map((c) => (
+              <FeatureCard key={c.title} {...c} />
             ))}
           </div>
         </section>
 
-        {/* Divider */}
-        <hr className={styles.divider} />
+        <hr className={styles.rule} />
 
-        {/* Topic groups — 3-column link lists */}
+        {/* ── Quick-start stepper ── */}
         <section className={styles.section}>
-          <h2 className={styles.sectionHeading}>All modules</h2>
+          <h2 className={styles.sectionLabel}>Get started in 3 steps</h2>
+          <div className={styles.stepperGrid}>
+            {quickStartSteps.map((s, i) => (
+              <StepCard
+                key={s.num}
+                {...s}
+                isLast={i === quickStartSteps.length - 1}
+              />
+            ))}
+          </div>
+        </section>
+
+        <hr className={styles.rule} />
+
+        {/* ── Topic groups ── */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionLabel}>All modules</h2>
           <div className={styles.topicGrid}>
             {topicGroups.map((g) => (
               <TopicGroup key={g.title} {...g} />
