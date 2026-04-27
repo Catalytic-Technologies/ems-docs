@@ -38,6 +38,8 @@ EMS will not generate duplicate invoices. If a student already has an invoice fo
 
 ## Viewing Invoices
 
+![Invoice list](../../static/img/finance/invoice-list.png)
+
 The invoice list shows all invoices with their status:
 
 | Status | Meaning |

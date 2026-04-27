@@ -29,57 +29,127 @@ export function videoDir(module) {
  * Draws a coloured box with an optional numbered callout label.
  *
  * @param {import('@playwright/test').Page} page
- * @param {string} selector - CSS selector of the element to highlight
+ * @param {string|import('@playwright/test').Locator} selectorOrLocator
+ *   Either a plain CSS selector string (no Playwright pseudo-selectors like :has-text)
+ *   OR a Playwright Locator object (preferred — avoids querySelector limitations).
  * @param {object} [options]
- * @param {string} [options.colour] - Border colour (default: #1a73e8)
+ * @param {string} [options.colour] - Border colour (default: #2563eb)
  * @param {string} [options.label]  - Callout number/label (optional)
  */
-export async function highlight(page, selector, { colour = '#1a73e8', label } = {}) {
-  await page.evaluate(
-    ({ sel, colour, label }) => {
-      const el = document.querySelector(sel);
-      if (!el) return;
-      const existing = document.querySelectorAll('.__ems_highlight');
-      existing.forEach((e) => e.remove());
-
-      const rect = el.getBoundingClientRect();
-      const overlay = document.createElement('div');
-      overlay.className = '__ems_highlight';
-      overlay.style.cssText = `
-        position: fixed;
-        top: ${rect.top - 4}px;
-        left: ${rect.left - 4}px;
-        width: ${rect.width + 8}px;
-        height: ${rect.height + 8}px;
-        border: 3px solid ${colour};
-        border-radius: 6px;
-        box-shadow: 0 0 0 9999px rgba(0,0,0,0.35);
-        pointer-events: none;
-        z-index: 999999;
+export async function highlight(page, selectorOrLocator, { colour = '#2563eb', label } = {}) {
+  const overlayScript = (el, { colour, label }) => {
+    document.querySelectorAll('.__ems_highlight').forEach((e) => e.remove());
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const overlay = document.createElement('div');
+    overlay.className = '__ems_highlight';
+    overlay.style.cssText = `
+      position: fixed;
+      top: ${rect.top - 4}px;
+      left: ${rect.left - 4}px;
+      width: ${rect.width + 8}px;
+      height: ${rect.height + 8}px;
+      border: 3px solid ${colour};
+      border-radius: 6px;
+      box-shadow: 0 0 0 9999px rgba(0,0,0,0.35);
+      pointer-events: none;
+      z-index: 999999;
+    `;
+    if (label) {
+      const badge = document.createElement('div');
+      badge.style.cssText = `
+        position: absolute;
+        top: -14px;
+        left: -4px;
+        background: ${colour};
+        color: white;
+        font-family: sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
       `;
-      if (label) {
-        const badge = document.createElement('div');
-        badge.style.cssText = `
-          position: absolute;
-          top: -14px;
-          left: -4px;
-          background: ${colour};
-          color: white;
-          font-family: sans-serif;
-          font-size: 13px;
-          font-weight: 700;
-          padding: 2px 8px;
-          border-radius: 4px;
-          white-space: nowrap;
-        `;
-        badge.textContent = label;
-        overlay.appendChild(badge);
+      badge.textContent = label;
+      overlay.appendChild(badge);
+    }
+    document.body.appendChild(overlay);
+  };
+
+  // Playwright Locator object — use locator.evaluate() so Playwright resolves
+  // the element and passes the actual DOM node into the browser context.
+  const isLocator = selectorOrLocator !== null
+    && typeof selectorOrLocator === 'object'
+    && typeof selectorOrLocator.evaluate === 'function';
+
+  // Playwright-specific pseudo-selectors that querySelector() cannot handle.
+  const PLAYWRIGHT_PSEUDOS = [':text(', ':has-text(', ':text-is(', ':visible', ':checked'];
+  const isPlaywrightSelector = typeof selectorOrLocator === 'string'
+    && PLAYWRIGHT_PSEUDOS.some((p) => selectorOrLocator.includes(p));
+
+  if (isLocator) {
+    // Already a Playwright Locator — pass the DOM element directly.
+    try {
+      await selectorOrLocator.evaluate(overlayScript, { colour, label });
+    } catch {
+      // Element may have disappeared; skip silently.
+    }
+  } else if (isPlaywrightSelector) {
+    // Use Playwright's own engine to resolve the selector, then run the overlay
+    // inside the browser via locator.evaluate().
+    const locator = page.locator(selectorOrLocator).first();
+    try {
+      if (await locator.isVisible({ timeout: 2000 })) {
+        await locator.evaluate(overlayScript, { colour, label });
       }
-      document.body.appendChild(overlay);
-    },
-    { sel: selector, colour, label }
-  );
-  // small pause so the overlay is painted before screenshot
+    } catch {
+      // Element not found — skip silently.
+    }
+  } else {
+    // Plain CSS selector — safe to pass directly to querySelector().
+    await page.evaluate(
+      ({ sel, colour, label }) => {
+        const el = document.querySelector(sel);
+        document.querySelectorAll('.__ems_highlight').forEach((e) => e.remove());
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const overlay = document.createElement('div');
+        overlay.className = '__ems_highlight';
+        overlay.style.cssText = `
+          position: fixed;
+          top: ${rect.top - 4}px;
+          left: ${rect.left - 4}px;
+          width: ${rect.width + 8}px;
+          height: ${rect.height + 8}px;
+          border: 3px solid ${colour};
+          border-radius: 6px;
+          box-shadow: 0 0 0 9999px rgba(0,0,0,0.35);
+          pointer-events: none;
+          z-index: 999999;
+        `;
+        if (label) {
+          const badge = document.createElement('div');
+          badge.style.cssText = `
+            position: absolute;
+            top: -14px;
+            left: -4px;
+            background: ${colour};
+            color: white;
+            font-family: sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+          `;
+          badge.textContent = label;
+          overlay.appendChild(badge);
+        }
+        document.body.appendChild(overlay);
+      },
+      { sel: selectorOrLocator, colour, label }
+    );
+  }
   await page.waitForTimeout(300);
 }
 

@@ -20,6 +20,8 @@ Use the **search bar** to find a student by name or admission number. Use the **
 
 ## Adding a Student
 
+![Add student button](../../static/img/academic/students-add-btn.png)
+
 1. Click **Add Student**.
 2. Fill in the student's details:
 

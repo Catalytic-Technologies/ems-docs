@@ -21,25 +21,21 @@ export default defineConfig({
   use: {
     baseURL: BASE_URL,
     viewport: { width: 1280, height: 720 },
-    // slowMo paces interactions so they are human-readable in recordings
-    launchOptions: {
-      slowMo: 600,
-      headless: false,    // headed so video capture is crisp
-      args: ['--start-maximized'],
-    },
     screenshot: 'only-on-failure',
-    // Storage state is saved by auth.setup.js and reused by all specs
-    storageState: 'auth-state.json',
+    // storageState is NOT set here — each project declares it explicitly so the
+    // setup project can run without the file needing to exist yet.
   },
 
   projects: [
-    // Auth setup — runs first, saves login session
+    // Auth setup — runs first, logs in and writes auth-state.json
     {
       name: 'setup',
       testMatch: 'auth.setup.js',
-      use: { storageState: undefined },
+      use: {
+        launchOptions: { slowMo: 300, headless: false },
+      },
     },
-    // Screenshot specs
+    // Screenshot specs — reuse the saved session
     {
       name: 'screenshots',
       testMatch: 'screenshots/**/*.spec.js',
@@ -50,7 +46,7 @@ export default defineConfig({
         launchOptions: { slowMo: 400, headless: false },
       },
     },
-    // Video recording specs
+    // Video recording specs — reuse the saved session
     {
       name: 'videos',
       testMatch: 'videos/**/*.spec.js',

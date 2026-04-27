@@ -12,6 +12,8 @@ The Requisitions module manages purchase requests. Staff submit requisitions for
 
 ## Submitting a Requisition
 
+![Requisitions list](../../static/img/finance/requisitions-list.png)
+
 1. Go to **Finance → Requisitions**.
 2. Click **New Requisition**.
 3. Fill in:
@@ -26,6 +28,8 @@ The Requisitions module manages purchase requests. Staff submit requisitions for
 
 4. Click **Submit for Approval**.
 
+![New requisition form](../../static/img/finance/requisition-new-form.png)
+
 ## Approving a Requisition
 
 School Admins review and approve or reject submitted requisitions:
@@ -34,6 +38,8 @@ School Admins review and approve or reject submitted requisitions:
 2. Open a requisition with **Pending** status.
 3. Review the details.
 4. Click **Approve** or **Reject** (with a reason for rejection).
+
+![Requisition detail with approval workflow](../../static/img/finance/requisition-detail.png)
 
 ## Requisition Statuses
 

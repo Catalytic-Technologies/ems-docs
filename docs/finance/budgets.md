@@ -12,6 +12,8 @@ The Budgets module allows the school to plan income and expenditure for each ter
 
 ## Creating a Budget
 
+![Budgets list](../../static/img/finance/budgets-list.png)
+
 1. Go to **Finance → Budgets**.
 2. Click **New Budget**.
 3. Select the **Term** or **Year** the budget covers.
@@ -39,6 +41,10 @@ The BvA report compares your budget against actual income and expenditure record
    - Percentage utilisation
 
 ![BvA Report](../../static/img/finance/bva-report.png)
+
+![Budget detail with expense lines](../../static/img/finance/budget-detail.png)
+
+![Over-budget lines highlighted](../../static/img/finance/bva-over-budget.png)
 
 This report is essential for term-end reviews and board reporting.
 

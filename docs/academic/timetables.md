@@ -17,11 +17,15 @@ The Timetables module provides a visual drag-and-drop builder for creating and m
 3. Give the timetable a name and select the **term** it covers.
 4. Click **Save** to open the timetable builder.
 
+![Timetables list](../../static/img/academic/timetables-list.png)
+
 ## Using the Timetable Builder
 
 The builder shows a grid of **classes (rows)** × **periods (columns)**.
 
-![Timetable Builder](../../static/img/academic/timetable-builder.png)
+![Timetable detail view](../../static/img/academic/timetable-detail.png)
+
+![Timetable period cell](../../static/img/academic/timetable-period-cell.png)
 
 To assign a lesson:
 1. Click an empty cell in the grid.
@@ -57,6 +61,10 @@ Teachers can view their personal timetable from **Academic → Timetables → My
 ## School Overview
 
 The **School Overview** shows all classes and their schedules side by side — useful for spotting gaps or overloaded days.
+
+![School timetable overview](../../static/img/academic/timetable-school-overview.png)
+
+![Timetable calendar view](../../static/img/academic/timetable-calendar.png)
 
 ## Compliance
 

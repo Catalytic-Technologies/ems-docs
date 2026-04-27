@@ -12,6 +12,8 @@ The Assessments module manages tests, exams, and continuous assessment tasks (CA
 
 ## Creating an Assessment
 
+![Assessments list](../../static/img/academic/assessments-list.png)
+
 1. Go to **Academic → Assessments**.
 2. Click **New Assessment**.
 3. Fill in the details:

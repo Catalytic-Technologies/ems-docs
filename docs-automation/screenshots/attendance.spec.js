@@ -10,7 +10,8 @@ import { screenshotPath, highlight, clearHighlights, pause } from '../helpers.js
 
 test('attendance screenshots', async ({ page }) => {
   // ── 1. Navigate to Attendance ──────────────────────────────────────────────
-  await page.goto('/attendance');
+  // ── 1a. Attendance Mark page (teacher view) ───────────────────────────────
+  await page.goto('/attendance/mark');
   await page.waitForLoadState('networkidle');
   await pause(page, 800);
 
@@ -19,11 +20,24 @@ test('attendance screenshots', async ({ page }) => {
     fullPage: false,
   });
 
-  // ── 2. Open a class ────────────────────────────────────────────────────────
-  const firstClass = page.getByRole('link', { name: /grade 4 blue/i }).first();
-  if (await firstClass.isVisible()) {
-    await highlight(page, '[data-testid="class-row"]:first-child, .class-row:first-child, tr:first-child', {
-      label: 'Click to open',
+  // ── 2. Attendance View page (admin/report view) ───────────────────────────
+  await page.goto('/attendance/view');
+  await page.waitForLoadState('networkidle');
+  await pause(page, 600);
+
+  await page.screenshot({
+    path: screenshotPath('academic', 'attendance-view.png'),
+  });
+
+  // ── 2a. Open first available class from mark page ─────────────────────────
+  await page.goto('/attendance/mark');
+  await page.waitForLoadState('networkidle');
+  await pause(page, 600);
+
+  const firstClass = page.getByRole('link', { name: /grade|class/i }).first();
+  if (await firstClass.isVisible({ timeout: 3000 })) {
+    await highlight(page, 'table tbody tr:first-child, .attendance-class-row:first-child', {
+      label: 'Click to mark',
     });
     await page.screenshot({
       path: screenshotPath('academic', 'attendance-class-select.png'),
@@ -32,10 +46,6 @@ test('attendance screenshots', async ({ page }) => {
     await firstClass.click();
     await page.waitForLoadState('networkidle');
     await pause(page, 600);
-  } else {
-    // fallback: try clicking any attendance link
-    await page.getByRole('link').first().click();
-    await page.waitForLoadState('networkidle');
   }
 
   // ── 3. Attendance marking screen ──────────────────────────────────────────

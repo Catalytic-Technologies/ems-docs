@@ -14,6 +14,8 @@ The Inbox is the unified communication centre for EMS. Use it to send and receiv
 
 Go to **Communication → Inbox** to see all your messages.
 
+![Inbox view](../../static/img/communication/inbox.png)
+
 Messages are organised into categories:
 - **Inbox** — messages received
 - **Sent** — messages you have sent
@@ -32,7 +34,9 @@ Click any message in the list to open and read it. Unread messages are shown in 
 5. Attach files if needed.
 6. Click **Send**.
 
-![Compose Message](../../static/img/communication/inbox-compose.png)
+![Compose button](../../static/img/communication/inbox-compose-btn.png)
+
+![Compose message form](../../static/img/communication/compose.png)
 
 :::tip[Sending to a class]
 You can address a message to an entire class. All guardians with students in that class will receive the message. Useful for class announcements.

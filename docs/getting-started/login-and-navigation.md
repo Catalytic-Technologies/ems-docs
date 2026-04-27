@@ -14,6 +14,8 @@ sidebar_position: 2
 
 ![EMS Login Screen](../../static/img/getting-started/login.png)
 
+![Email field highlighted](../../static/img/getting-started/login-email.png)
+
 :::tip[Forgot your password?]
 Click **Forgot Password** on the login page. A reset link will be sent to your registered email address. If you do not receive the email within 5 minutes, check your spam folder or contact your school administrator.
 :::
@@ -32,6 +34,8 @@ After logging in you are taken to your **Dashboard**. The dashboard content vari
 
 ![Dashboard Overview](../../static/img/getting-started/dashboard.png)
 
+![Dashboard overview with stats](../../static/img/getting-started/dashboard-overview.png)
+
 ## Navigating the Sidebar
 
 The **left sidebar** is the primary navigation for the system. It is organised into sections that match your role's access.
@@ -46,6 +50,8 @@ The **left sidebar** is the primary navigation for the system. It is organised i
 | Communication | Inbox, documents |
 | Analytics | Reports, report packs |
 | Configuration | Settings, load data |
+
+![Sidebar navigation](../../static/img/getting-started/dashboard-sidebar.png)
 
 Click any menu item to navigate to that module. Items with a **chevron (›)** have sub-pages — click to expand the section.
 

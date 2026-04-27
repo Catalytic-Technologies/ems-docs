@@ -48,8 +48,25 @@ test('finance - fee setup screenshots', async ({ page }) => {
 });
 
 test('finance - bva report screenshot', async ({ page }) => {
-  await page.goto('/finance/bva');
+  await page.goto('/finance/budgets/bva');
   await page.waitForLoadState('networkidle');
   await pause(page, 1000);
   await page.screenshot({ path: screenshotPath('finance', 'bva-report.png') });
+});
+
+test('finance - defaulters and scholarships', async ({ page }) => {
+  await page.goto('/finance/defaulters');
+  await page.waitForLoadState('networkidle');
+  await pause(page, 800);
+  await page.screenshot({ path: screenshotPath('finance', 'defaulters.png') });
+
+  await page.goto('/finance/scholarships');
+  await page.waitForLoadState('networkidle');
+  await pause(page, 600);
+  await page.screenshot({ path: screenshotPath('finance', 'scholarships.png') });
+
+  await page.goto('/finance/payment-plans');
+  await page.waitForLoadState('networkidle');
+  await pause(page, 600);
+  await page.screenshot({ path: screenshotPath('finance', 'payment-plans.png') });
 });

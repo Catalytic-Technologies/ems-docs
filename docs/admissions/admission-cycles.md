@@ -47,6 +47,10 @@ From the cycles list, you can see:
 - Applications by status (pending, shortlisted, admitted, rejected)
 - Remaining capacity
 
+![Admission cycles list](../../static/img/admissions/cycles-list.png)
+
+![Open cycle badge](../../static/img/admissions/cycle-open.png)
+
 Click a cycle to open the **Application Pipeline** for that cycle.
 
 ## Related Pages

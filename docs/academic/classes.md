@@ -14,6 +14,8 @@ Classes (also called streams) are the organisational units that group students f
 
 Go to **Academic → Classes** to see all classes for the current term.
 
+![Classes list](../../static/img/academic/classes-list.png)
+
 ## Creating a Class
 
 1. Click **New Class**.
@@ -45,6 +47,8 @@ The class detail page shows:
 - Subject roster with assigned teachers
 - Attendance summary for the class
 - Timetable for the class
+
+![Class detail view](../../static/img/academic/class-detail.png)
 
 ## Related Pages
 

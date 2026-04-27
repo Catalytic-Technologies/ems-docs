@@ -23,7 +23,7 @@ test('record attendance workflow', async ({ browser }) => {
   await injectCursorRing(page);
 
   // ── Navigate to Attendance ─────────────────────────────────────────────────
-  await page.goto('/attendance');
+  await page.goto('/attendance/mark');
   await page.waitForLoadState('networkidle');
   await pause(page, 2000); // let viewer see the list
 

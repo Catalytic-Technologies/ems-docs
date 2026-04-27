@@ -12,6 +12,8 @@ The Payments module records all fee payments received from guardians and applies
 
 ## Recording a Payment
 
+![Payments list](../../static/img/finance/payments-list.png)
+
 1. Go to **Finance → Payments**.
 2. Click **New Payment**.
 3. Search for the **student** by name or admission number.
@@ -56,6 +58,8 @@ The defaulters report shows students with outstanding balances.
 1. Go to **Finance → Defaulters**.
 2. Filter by **term**, **class**, or **minimum balance**.
 3. Export the list or send bulk SMS/email reminders.
+
+![Defaulters report](../../static/img/finance/defaulters.png)
 
 ## Cashbook
 

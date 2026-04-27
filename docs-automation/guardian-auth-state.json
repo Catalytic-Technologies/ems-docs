@@ -1,0 +1,18 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://localhost:3001",
+      "localStorage": [
+        {
+          "name": "ems_guardian_sessions",
+          "value": "[{\"schoolId\":\"69ef23b3d1438ecabd3604c3\",\"schoolName\":\"Greenfield Academy\",\"schoolLogo\":null,\"user\":{\"schoolId\":\"69ef23b3d1438ecabd3604c3\",\"firstName\":\"Grace\",\"lastName\":\"Wanjiru\",\"email\":\"parent@demo-school.ems\",\"role\":\"PARENT\",\"isActive\":true,\"fcmToken\":null,\"createdAt\":\"2026-04-27T08:52:07.253Z\",\"updatedAt\":\"2026-04-27T08:52:07.253Z\",\"name\":\"Grace Wanjiru\",\"id\":\"69ef23b7d1438ecabd3604e0\",\"schoolLogo\":null,\"schoolName\":\"Greenfield Academy\"},\"accessToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWVmMjNiN2QxNDM4ZWNhYmQzNjA0ZTAiLCJyb2xlIjoiUEFSRU5UIiwic2Nob29sSWQiOiI2OWVmMjNiM2QxNDM4ZWNhYmQzNjA0YzMiLCJpYXQiOjE3NzcyODI2MDAsImV4cCI6MTc3NzI4MzUwMH0._8T0F6yXd8AX48b2n08K6oC9RdFndSkl0iHTBE8d2eM\",\"refreshToken\":\"b573392fc5341de8eccf70a83b4c9c6dc559ca60000ae08eab75c5340e2bb5f47eefc0e74ab44170\"}]"
+        },
+        {
+          "name": "ems_guardian_auth",
+          "value": "{\"user\":{\"schoolId\":\"69ef23b3d1438ecabd3604c3\",\"firstName\":\"Grace\",\"lastName\":\"Wanjiru\",\"email\":\"parent@demo-school.ems\",\"role\":\"PARENT\",\"isActive\":true,\"fcmToken\":null,\"createdAt\":\"2026-04-27T08:52:07.253Z\",\"updatedAt\":\"2026-04-27T08:52:07.253Z\",\"name\":\"Grace Wanjiru\",\"id\":\"69ef23b7d1438ecabd3604e0\",\"schoolLogo\":null,\"schoolName\":\"Greenfield Academy\"},\"accessToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWVmMjNiN2QxNDM4ZWNhYmQzNjA0ZTAiLCJyb2xlIjoiUEFSRU5UIiwic2Nob29sSWQiOiI2OWVmMjNiM2QxNDM4ZWNhYmQzNjA0YzMiLCJpYXQiOjE3NzcyODI2MDAsImV4cCI6MTc3NzI4MzUwMH0._8T0F6yXd8AX48b2n08K6oC9RdFndSkl0iHTBE8d2eM\",\"refreshToken\":\"b573392fc5341de8eccf70a83b4c9c6dc559ca60000ae08eab75c5340e2bb5f47eefc0e74ab44170\"}"
+        }
+      ]
+    }
+  ]
+}

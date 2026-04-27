@@ -29,6 +29,8 @@ The Application Pipeline is where you review, manage, and decide on student appl
 | **Rejected** | Application declined |
 | **Withdrawn** | Applicant withdrew |
 
+![Submitted applications](../../static/img/admissions/status-submitted.png)
+
 ## Reviewing an Application
 
 1. Click an application row to open the **Application Detail** view.
@@ -36,6 +38,10 @@ The Application Pipeline is where you review, manage, and decide on student appl
 3. Use the **Status** dropdown to update the application status.
 4. Add an **internal note** if needed (not visible to applicants).
 5. Click **Save**.
+
+![Application detail view](../../static/img/admissions/application-detail.png)
+
+![Application info and review history](../../static/img/admissions/application-history.png)
 
 ## Bulk Actions
 

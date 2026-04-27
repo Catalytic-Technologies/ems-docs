@@ -16,7 +16,13 @@ The Attendance module lets teachers mark daily or period-by-period attendance fo
 
 1. Go to **Academic → Attendance**.
 2. Your assigned classes are listed. Click the class you want to mark.
+
+![Attendance class list](../../static/img/academic/attendance-list.png)
+
 3. Select the **date** (defaults to today).
+
+![Select class to mark](../../static/img/academic/attendance-class-select.png)
+
 4. The full student list loads automatically.
 
 ![Attendance Marking Screen](../../static/img/academic/attendance-mark.png)
@@ -30,9 +36,13 @@ The Attendance module lets teachers mark daily or period-by-period attendance fo
 6. Optionally click the **note icon** next to a student to add a reason for absence.
 7. Click **Save Attendance**.
 
+![Save attendance button](../../static/img/academic/attendance-save.png)
+
 :::tip[Quick mark]
 Use the **Mark All Present** button at the top to mark the entire class present, then adjust individual students who are absent. This is faster for classes with high attendance.
 :::
+
+![Mark All Present button](../../static/img/academic/attendance-mark-all.png)
 
 :::note
 Once attendance is saved for a date, it can be edited by the teacher until the end of the school day. After that, only a School Admin can make changes.
@@ -49,6 +59,8 @@ School Admins can view attendance reports across the school:
 1. Go to **Academic → Attendance → Reports**.
 2. Filter by **class**, **date range**, or **student**.
 3. Export to CSV or print the report.
+
+![Attendance report view](../../static/img/academic/attendance-view.png)
 
 ## Attendance Compliance
 
