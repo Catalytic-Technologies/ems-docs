@@ -1,36 +1,45 @@
 // @ts-check
-import { themes as prismThemes } from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer"
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'EMS Help Centre',
-  tagline: 'User guides, tutorials, and support for the EMS School Operating System',
-  favicon: 'img/favicon.ico',
+  title: "EMS Help Centre",
+  tagline:
+    "User guides, tutorials, and support for the EMS School Operating System",
+  favicon: "img/favicon.ico",
 
   future: {
     v4: true,
   },
 
-  url: 'https://ems-docs.vercel.app',
-  baseUrl: '/',
+  url: "https://ems-docs.vercel.app",
+  baseUrl: "/",
 
-  organizationName: 'ems-system',
-  projectName: 'ems-docs',
+  organizationName: "ems-system",
+  projectName: "ems-docs",
 
-  onBrokenLinks: 'warn',
-  onBrokenAnchors: 'warn',
+  onBrokenLinks: "warn",
+  onBrokenAnchors: "warn",
+
+  markdown: {
+    hooks: {
+      // Warn (don't fail) when a referenced image file doesn't exist yet.
+      // This lets the site deploy while screenshots are still being captured.
+      onBrokenMarkdownImages: "warn",
+    },
+  },
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   plugins: [
     [
-      '@easyops-cn/docusaurus-search-local',
+      "@easyops-cn/docusaurus-search-local",
       {
         hashed: true,
-        language: ['en'],
+        language: ["en"],
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
       },
@@ -39,25 +48,26 @@ const config = {
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/ems-system/ems-docs/tree/main/',
+          sidebarPath: "./sidebars.js",
+          editUrl: "https://github.com/ems-system/ems-docs/tree/main/",
         },
         blog: {
           showReadingTime: true,
-          blogTitle: 'Release Notes',
-          blogDescription: 'EMS product updates, new features, and announcements',
+          blogTitle: "Release Notes",
+          blogDescription:
+            "EMS product updates, new features, and announcements",
           postsPerPage: 10,
-          feedOptions: { type: ['rss', 'atom'], xslt: true },
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          feedOptions: { type: ["rss", "atom"], xslt: true },
+          onInlineTags: "warn",
+          onInlineAuthors: "warn",
+          onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
@@ -67,66 +77,82 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       metadata: [
-        { name: 'keywords', content: 'ems, school management, student information system, tutorials, help' },
+        {
+          name: "keywords",
+          content:
+            "ems, school management, student information system, tutorials, help",
+        },
       ],
       colorMode: {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'EMS Help Centre',
+        title: "EMS Help Centre",
         logo: {
-          alt: 'EMS Logo',
-          src: 'img/logo.svg',
+          alt: "EMS Logo",
+          src: "img/logo.svg",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'docsSidebar',
-            position: 'left',
-            label: 'Documentation',
+            type: "docSidebar",
+            sidebarId: "docsSidebar",
+            position: "left",
+            label: "Documentation",
           },
           {
-            to: '/blog',
-            label: 'Release Notes',
-            position: 'left',
+            to: "/blog",
+            label: "Release Notes",
+            position: "left",
           },
           {
-            type: 'search',
-            position: 'right',
+            type: "search",
+            position: "right",
           },
           {
-            href: 'https://github.com/ems-system/ems-docs',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/ems-system/ems-docs",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'light',
+        style: "light",
         links: [
           {
-            title: 'Getting Started',
+            title: "Getting Started",
             items: [
-              { label: 'System Overview', to: '/docs/getting-started/overview' },
-              { label: 'Login & Navigation', to: '/docs/getting-started/login-and-navigation' },
-              { label: 'Roles & Permissions', to: '/docs/getting-started/roles-and-permissions' },
+              {
+                label: "System Overview",
+                to: "/docs/getting-started/overview",
+              },
+              {
+                label: "Login & Navigation",
+                to: "/docs/getting-started/login-and-navigation",
+              },
+              {
+                label: "Roles & Permissions",
+                to: "/docs/getting-started/roles-and-permissions",
+              },
             ],
           },
           {
-            title: 'Modules',
+            title: "Modules",
             items: [
-              { label: 'Academic', to: '/docs/academic/students' },
-              { label: 'Finance', to: '/docs/finance/fee-setup' },
-              { label: 'Admissions', to: '/docs/admissions/overview' },
-              { label: 'Reports', to: '/docs/reports/overview' },
+              { label: "Academic", to: "/docs/academic/students" },
+              { label: "Finance", to: "/docs/finance/fee-setup" },
+              { label: "Admissions", to: "/docs/admissions/overview" },
+              { label: "Reports", to: "/docs/reports/overview" },
             ],
           },
           {
-            title: 'Support',
+            title: "Support",
             items: [
-              { label: 'Troubleshooting', to: '/docs/troubleshooting/common-issues' },
-              { label: 'FAQ', to: '/docs/troubleshooting/faq' },
-              { label: 'Release Notes', to: '/blog' },
+              {
+                label: "Troubleshooting",
+                to: "/docs/troubleshooting/common-issues",
+              },
+              { label: "FAQ", to: "/docs/troubleshooting/faq" },
+              { label: "Release Notes", to: "/blog" },
             ],
           },
         ],
@@ -135,9 +161,9 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ['bash', 'json'],
+        additionalLanguages: ["bash", "json"],
       },
     }),
-};
+}
 
-export default config;
+export default config
